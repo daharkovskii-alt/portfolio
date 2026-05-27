@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+@theme {
+  --color-void: #060606;
+  --color-void-soft: #0e0e0e;
+  --color-chrome: #c4c4c4;
+  --color-chrome-dark: #7a7a7a;
+  --color-chrome-light: #e8e8e8;
+  --color-chrome-dim: rgba(196, 196, 196, 0.12);
+  --color-muted: #3a3a3a;
+
+  --font-sans: 'Afacad', 'Inter', system-ui, sans-serif;
+  --font-display: 'Afacad', 'Inter', system-ui, sans-serif;
+}
+
+@font-face {
+  font-family: 'MontserratAlternates';
+  src: url('/fonts/MontserratAlternates/MontserratAlternates-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MontserratAlternates';
+  src: url('/fonts/MontserratAlternates/MontserratAlternates-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MontserratAlternates';
+  src: url('/fonts/MontserratAlternates/MontserratAlternates-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MontserratAlternates';
+  src: url('/fonts/MontserratAlternates/MontserratAlternates-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MontserratAlternates';
+  src: url('/fonts/MontserratAlternates/MontserratAlternates-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Afacad';
+  src: url('/fonts/Afacad/Afacad-VariableFont_wght.ttf') format('truetype');
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Afacad';
+  src: url('/fonts/Afacad/Afacad-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 300 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bounded';
+  src: url('/dionis-jewelry/dionis found/Bounded-Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bounded';
+  src: url('/dionis-jewelry/dionis found/Bounded-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0400-U+04FF, U+0500-U+052F, U+2DE0-U+2DFF, U+A640-U+A69F, U+FE2E-U+FE2F;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0400-U+04FF, U+0500-U+052F, U+2DE0-U+2DFF, U+A640-U+A69F, U+FE2E-U+FE2F;
+}
+
+/* ── theme tokens ── */
+:root {
+  --c-bg:        #000000;
+  --c-fg:        #e8e8e8;
+  --c-fg-muted:  #7a7a7a;
+  --c-fg-subtle: #3a3a3a;
+  --c-fg-ghost:  #2a2a2a;
+  --c-fg-dim:    #4a4a4a;
+  --c-fg-mid:    #5a5a5a;
+  --c-border:    #1a1a1a;
+  --c-overlay:   rgba(0,0,0,0.85);
+  --c-hero-grad: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.75) 100%);
+}
+
+html[data-theme="light"] {
+  --c-bg:        #f5f0e8;
+  --c-fg:        #0f0f0a;
+  --c-fg-muted:  #6a6560;
+  --c-fg-subtle: #9a9590;
+  --c-fg-ghost:  #c0b8b0;
+  --c-fg-dim:    #6a6560;
+  --c-fg-mid:    #7a7570;
+  --c-border:    #d8d0c0;
+  --c-overlay:   rgba(245,240,232,0.85);
+  --c-hero-grad: linear-gradient(to bottom, rgba(245,240,232,0.2) 0%, rgba(245,240,232,0.75) 100%);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--c-bg);
+  color: var(--c-fg);
+  font-family: 'Afacad', 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: auto;
+  overflow-x: hidden;
+  transition: background-color 0.05s, color 0.05s;
+}
+
+body {
+  background-color: var(--c-bg);
+  color: var(--c-fg);
+  min-height: 100dvh;
+  position: relative;
+  transition: background-color 0.05s, color 0.05s;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scrollbar-width: none;
+}
+
+::selection {
+  background: rgba(128, 120, 110, 0.2);
+  color: var(--c-fg);
+}
+
+a, button {
+  cursor: pointer;
+}
+
+/* ── theme toggle circle wipe ── */
+.theme-wipe {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  clip-path: circle(0% at var(--wipe-x, 50%) var(--wipe-y, 50%));
+  transition: clip-path 0.7s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.theme-wipe.active {
+  clip-path: circle(150% at var(--wipe-x, 50%) var(--wipe-y, 50%));
+}
