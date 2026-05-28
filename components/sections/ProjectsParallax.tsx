@@ -47,7 +47,7 @@ const projects: Project[] = [
     role: "Арт директор",
     year: "2025",
     description: "Айдентика Российского Интернет Форума",
-    cover: "/rif/обложка.png",
+    cover: "/rif/cover.png",
     coverFit: "contain",
     tags: ["Identity", "Digital"],
   },

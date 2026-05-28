@@ -1,8 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import NextImage from "next/image";
 import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform, useInView, AnimatePresence } from "framer-motion";
+
+const MotionImage = motion(NextImage);
 import FaultyTerminal from "@/components/ui/FaultyTerminal";
 import { useScreenSize } from "@/hooks/use-screen-size";
 
@@ -330,13 +333,13 @@ function ApproachBlock() {
   };
 
   const ICONS = [
-    { src: "/rif/джлстик.svg", dur: 3.5, rot: true,  delay: 0,   size: "clamp(70px,8vw,115px)",  top: "8%",   left: "38%" },
-    { src: "/rif/молния.svg",   dur: 2.8, rot: true,  delay: 0.4, size: "clamp(50px,5vw,78px)",   top: "5%",   left: "54%" },
-    { src: "/rif/бомб.svg",     dur: 4.0, rot: false, delay: 0.8, size: "clamp(70px,8vw,108px)",  top: "6%",   right: "5%" },
-    { src: "/rif/комп.svg",     dur: 3.8, rot: false, delay: 1.2, size: "clamp(90px,10vw,148px)", bottom: "12%", right: "22%" },
-    { src: "/rif/огонь.svg",    dur: 2.5, rot: false, delay: 0.3, size: "clamp(60px,6vw,90px)",   bottom: "32%", right: "24%" },
-    { src: "/rif/огонь1.png",   dur: 3.0, rot: false, delay: 0.6, size: "clamp(55px,5vw,80px)",   bottom: "5%",  left: "3%" },
-    { src: "/rif/меч.svg",      dur: 3.6, rot: true,  delay: 1.0, size: "clamp(60px,6vw,90px)",   bottom: "5%",  right: "7%" },
+    { src: "/rif/joystick.svg", dur: 3.5, rot: true,  delay: 0,   size: "clamp(70px,8vw,115px)",  top: "8%",   left: "38%" },
+    { src: "/rif/lightning.svg",   dur: 2.8, rot: true,  delay: 0.4, size: "clamp(50px,5vw,78px)",   top: "5%",   left: "54%" },
+    { src: "/rif/bomb.svg",     dur: 4.0, rot: false, delay: 0.8, size: "clamp(70px,8vw,108px)",  top: "6%",   right: "5%" },
+    { src: "/rif/comp.svg",     dur: 3.8, rot: false, delay: 1.2, size: "clamp(90px,10vw,148px)", bottom: "12%", right: "22%" },
+    { src: "/rif/fire.svg",    dur: 2.5, rot: false, delay: 0.3, size: "clamp(60px,6vw,90px)",   bottom: "32%", right: "24%" },
+    { src: "/rif/fire1.png",   dur: 3.0, rot: false, delay: 0.6, size: "clamp(55px,5vw,80px)",   bottom: "5%",  left: "3%" },
+    { src: "/rif/sword.svg",      dur: 3.6, rot: true,  delay: 1.0, size: "clamp(60px,6vw,90px)",   bottom: "5%",  right: "7%" },
   ];
 
   return (
@@ -547,12 +550,14 @@ export function RifContentV2() {
               animate={{ y: [0, -22, 0] }}
               transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/rif/image 327.png"
+              <NextImage
+                src="/rif/img-327.png"
                 alt=""
+                width={240}
+                height={240}
                 style={{
                   width: "clamp(140px, 16vw, 240px)",
+                  height: "auto",
                   display: "block",
                   filter: "drop-shadow(0px 44px 18px rgba(0,0,0,0.3))",
                 }}
@@ -571,12 +576,14 @@ export function RifContentV2() {
               animate={{ y: [0, -16, 0] }}
               transition={{ duration: 4.4, repeat: Infinity, ease: "easeInOut", delay: 1.1 }}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/rif/image 328.png"
+              <NextImage
+                src="/rif/img-328.png"
                 alt=""
+                width={285}
+                height={285}
                 style={{
                   width: "clamp(165px, 18vw, 285px)",
+                  height: "auto",
                   display: "block",
                   filter: "drop-shadow(0px 38px 16px rgba(0,0,0,0.28))",
                 }}
@@ -705,10 +712,11 @@ export function RifContentV2() {
                 {/* БЫЛО */}
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "12px" }}>
                   {isMobile && <span style={{ fontSize: "11px", fontWeight: 700, color: C.label, textTransform: "uppercase", letterSpacing: "0.12em", transition: tr }}>Было</span>}
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/rif/logo old.png"
+                  <NextImage
+                    src="/rif/logo-old.png"
                     alt="Старый логотип РИФ"
+                    width={260}
+                    height={260}
                     style={{ width: isMobile ? "140px" : "clamp(160px,18vw,260px)", height: isMobile ? "140px" : "clamp(160px,18vw,260px)", objectFit: "contain", display: "block", opacity: 0.72 }}
                   />
                   {!isMobile && <span style={{ fontSize: "11px", fontWeight: 700, color: C.label, textTransform: "uppercase", letterSpacing: "0.12em", flexShrink: 0, transition: tr }}>Было</span>}
@@ -733,7 +741,7 @@ export function RifContentV2() {
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "12px" }}>
                   {isMobile && <span style={{ fontSize: "11px", fontWeight: 700, color: PURPLE, textTransform: "uppercase", letterSpacing: "0.12em" }}>Стало</span>}
                   <motion.img
-                    src="/rif/logo new.svg"
+                    src="/rif/logo-new.svg"
                     alt="Новый логотип РИФ"
                     animate={{ y: [0, -10, 0] }}
                     transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut" }}
@@ -773,7 +781,7 @@ export function RifContentV2() {
               }}>
                 {/* тирекс fills container + 20% extra so parallax range stays visible */}
                 <motion.img
-                  src="/rif/тирекс.svg"
+                  src="/rif/trex.svg"
                   alt=""
                   style={{
                     display: "block", width: "100%",
@@ -813,12 +821,12 @@ export function RifContentV2() {
               </p>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "clamp(48px,6vw,72px)", gap: "clamp(16px,2vw,32px)", flexWrap: "wrap" }}>
                 {[
-                  { src: "/rif/комп2.svg",      alt: "Компьютер", delay: 0 },
-                  { src: "/rif/часы.svg",        alt: "Часы",      delay: 0.07 },
-                  { src: "/rif/планета.svg",     alt: "Планета",   delay: 0.14 },
-                  { src: "/rif/часы2.svg",       alt: "Часы 2",    delay: 0.21 },
-                  { src: "/rif/карандаши.svg",   alt: "Карандаши", delay: 0.28 },
-                  { src: "/rif/папка.svg",       alt: "Папка",     delay: 0.35 },
+                  { src: "/rif/comp2.svg",      alt: "Компьютер", delay: 0 },
+                  { src: "/rif/clock.svg",        alt: "Часы",      delay: 0.07 },
+                  { src: "/rif/planet.svg",     alt: "Планета",   delay: 0.14 },
+                  { src: "/rif/clock2.svg",       alt: "Часы 2",    delay: 0.21 },
+                  { src: "/rif/pencils.svg",   alt: "Карандаши", delay: 0.28 },
+                  { src: "/rif/folder.svg",       alt: "Папка",     delay: 0.35 },
                 ].map((icon, i) => (
                   <motion.div
                     key={icon.src}
@@ -860,12 +868,10 @@ export function RifContentV2() {
               </p>
               <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
                 <div style={{ borderRadius: "16px", overflow: "hidden" }}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/rif/глав1.png" alt="Главная страница РИФ 2025" style={{ width: "100%", display: "block" }} />
+                  <NextImage src="/rif/main1.png" alt="Главная страница РИФ 2025" width={1200} height={800} style={{ width: "100%", height: "auto", display: "block" }} />
                 </div>
                 <div style={{ borderRadius: "16px", overflow: "hidden" }}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/rif/глав2.png" alt="РИФ 2025 — страница сайта" style={{ width: "100%", display: "block" }} />
+                  <NextImage src="/rif/main2.png" alt="РИФ 2025 — страница сайта" width={1200} height={800} style={{ width: "100%", height: "auto", display: "block" }} />
                 </div>
               </div>
             </div>
@@ -883,11 +889,14 @@ export function RifContentV2() {
                   Так же дизайн был адаптирован под мобильные устройства.
                 </p>
               </div>
-              <motion.img
-                src="/rif/моб3.png"
+              <MotionImage
+                src="/rif/mob3.png"
                 alt="Мобильная версия сайта РИФ 2025"
+                width={900}
+                height={1200}
                 style={{
                   width: isMobile ? "72%" : "86%",
+                  height: "auto",
                   display: "block",
                   margin: isMobile ? "32px auto 0" : "-80px auto -400px",
                   y: isMobile ? undefined : mobImgY,
@@ -946,10 +955,9 @@ export function RifContentV2() {
 
           {/* ── PHOTO GRID ── */}
           {(() => {
-            const f = (name: string) => `/rif/frames/${encodeURIComponent(name)}`;
+            const f = (name: string) => `/rif/frames/${name}`;
             const img = (name: string, pos = "center center") => (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img src={f(name)} alt="РИФ 2025" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: pos, display: "block" }} />
+              <NextImage src={f(name)} alt="РИФ 2025" fill style={{ objectFit: "cover", objectPosition: pos }} />
             );
             const two = isMobile ? "1fr 1fr" : "1fr 1fr";
             const three = isMobile ? "1fr 1fr" : "1fr 1fr 1fr";
@@ -967,82 +975,82 @@ export function RifContentV2() {
 
                 {/* БИЛБОРДЫ */}
                 <div style={{ display: "grid", gridTemplateColumns: two, gap: GAP }}>
-                  <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h360 }}>{img("image 314.png")}</div></Reveal>
-                  <Reveal delay={0.07}><div style={{ borderRadius: R, overflow: "hidden", height: h360 }}>{img("image 315.png")}</div></Reveal>
+                  <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h360 }}>{img("frame-314.png")}</div></Reveal>
+                  <Reveal delay={0.07}><div style={{ borderRadius: R, overflow: "hidden", height: h360 }}>{img("frame-315.png")}</div></Reveal>
                 </div>
                 <div style={{ display: "grid", gridTemplateColumns: two, gap: GAP }}>
-                  <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h360 }}>{img("image 336.png")}</div></Reveal>
-                  <Reveal delay={0.07}><div style={{ borderRadius: R, overflow: "hidden", height: h360 }}>{img("image 337.png")}</div></Reveal>
+                  <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h360 }}>{img("frame-336.png")}</div></Reveal>
+                  <Reveal delay={0.07}><div style={{ borderRadius: R, overflow: "hidden", height: h360 }}>{img("frame-337.png")}</div></Reveal>
                 </div>
 
                 {/* ТЕРРИТОРИЯ */}
-                <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h480 }}>{img("image 288.png")}</div></Reveal>
+                <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h480 }}>{img("frame-288.png")}</div></Reveal>
                 <div style={{ display: "grid", gridTemplateColumns: wideLeft, gap: GAP }}>
-                  <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h420 }}>{img("image 289.png")}</div></Reveal>
-                  <Reveal delay={0.07}><div style={{ borderRadius: R, overflow: "hidden", height: h420 }}>{img("image 300.png", "center top")}</div></Reveal>
+                  <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h420 }}>{img("frame-289.png")}</div></Reveal>
+                  <Reveal delay={0.07}><div style={{ borderRadius: R, overflow: "hidden", height: h420 }}>{img("frame-300.png", "center top")}</div></Reveal>
                 </div>
                 <div style={{ display: "grid", gridTemplateColumns: three, gap: GAP }}>
-                  <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h320 }}>{img("image 305.png")}</div></Reveal>
-                  <Reveal delay={0.07}><div style={{ borderRadius: R, overflow: "hidden", height: h320 }}>{img("image 302.png")}</div></Reveal>
-                  {!isMobile && <Reveal delay={0.12}><div style={{ borderRadius: R, overflow: "hidden", height: h320 }}>{img("image 299.png")}</div></Reveal>}
+                  <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h320 }}>{img("frame-305.png")}</div></Reveal>
+                  <Reveal delay={0.07}><div style={{ borderRadius: R, overflow: "hidden", height: h320 }}>{img("frame-302.png")}</div></Reveal>
+                  {!isMobile && <Reveal delay={0.12}><div style={{ borderRadius: R, overflow: "hidden", height: h320 }}>{img("frame-299.png")}</div></Reveal>}
                 </div>
                 {isMobile && (
-                  <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h320 }}>{img("image 299.png")}</div></Reveal>
+                  <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h320 }}>{img("frame-299.png")}</div></Reveal>
                 )}
                 <div style={{ display: "grid", gridTemplateColumns: wideRight, gap: GAP }}>
-                  <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h380 }}>{img("image 265.png")}</div></Reveal>
-                  <Reveal delay={0.07}><div style={{ borderRadius: R, overflow: "hidden", height: h380 }}>{img("image 296.png")}</div></Reveal>
+                  <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h380 }}>{img("frame-265.png")}</div></Reveal>
+                  <Reveal delay={0.07}><div style={{ borderRadius: R, overflow: "hidden", height: h380 }}>{img("frame-296.png")}</div></Reveal>
                 </div>
 
                 {/* ЛЮДИ */}
                 <div style={{ display: "grid", gridTemplateColumns: wideRight, gap: GAP }}>
-                  <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h380 }}>{img("image 281.png")}</div></Reveal>
-                  <Reveal delay={0.07}><div style={{ borderRadius: R, overflow: "hidden", height: h380 }}>{img("image 322.png")}</div></Reveal>
+                  <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h380 }}>{img("frame-281.png")}</div></Reveal>
+                  <Reveal delay={0.07}><div style={{ borderRadius: R, overflow: "hidden", height: h380 }}>{img("frame-322.png")}</div></Reveal>
                 </div>
                 <div style={{ display: "grid", gridTemplateColumns: three, gap: GAP }}>
-                  <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h320 }}>{img("image 257.png")}</div></Reveal>
-                  <Reveal delay={0.07}><div style={{ borderRadius: R, overflow: "hidden", height: h320 }}>{img("image 279.png")}</div></Reveal>
-                  {!isMobile && <Reveal delay={0.12}><div style={{ borderRadius: R, overflow: "hidden", height: h320 }}>{img("image 311.png")}</div></Reveal>}
+                  <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h320 }}>{img("frame-257.png")}</div></Reveal>
+                  <Reveal delay={0.07}><div style={{ borderRadius: R, overflow: "hidden", height: h320 }}>{img("frame-279.png")}</div></Reveal>
+                  {!isMobile && <Reveal delay={0.12}><div style={{ borderRadius: R, overflow: "hidden", height: h320 }}>{img("frame-311.png")}</div></Reveal>}
                 </div>
                 {isMobile && (
-                  <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h320 }}>{img("image 311.png")}</div></Reveal>
+                  <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h320 }}>{img("frame-311.png")}</div></Reveal>
                 )}
 
                 {/* ЛЕКЦИИ */}
-                <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h460 }}>{img("image 292.png")}</div></Reveal>
+                <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h460 }}>{img("frame-292.png")}</div></Reveal>
                 <div style={{ display: "grid", gridTemplateColumns: three, gap: GAP }}>
-                  <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h360 }}>{img("image 249.png")}</div></Reveal>
-                  <Reveal delay={0.07}><div style={{ borderRadius: R, overflow: "hidden", height: h360 }}>{img("image 253.png")}</div></Reveal>
-                  {!isMobile && <Reveal delay={0.12}><div style={{ borderRadius: R, overflow: "hidden", height: h360 }}>{img("image 254.png", "center top")}</div></Reveal>}
+                  <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h360 }}>{img("frame-249.png")}</div></Reveal>
+                  <Reveal delay={0.07}><div style={{ borderRadius: R, overflow: "hidden", height: h360 }}>{img("frame-253.png")}</div></Reveal>
+                  {!isMobile && <Reveal delay={0.12}><div style={{ borderRadius: R, overflow: "hidden", height: h360 }}>{img("frame-254.png", "center top")}</div></Reveal>}
                 </div>
                 {isMobile && (
-                  <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h360 }}>{img("image 254.png", "center top")}</div></Reveal>
+                  <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h360 }}>{img("frame-254.png", "center top")}</div></Reveal>
                 )}
 
                 {/* ДЕТАЛИ */}
                 <div style={{ display: "grid", gridTemplateColumns: two, gap: GAP }}>
-                  <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h380 }}>{img("image 258.png")}</div></Reveal>
-                  <Reveal delay={0.07}><div style={{ borderRadius: R, overflow: "hidden", height: h380 }}>{img("image 323.png")}</div></Reveal>
+                  <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h380 }}>{img("frame-258.png")}</div></Reveal>
+                  <Reveal delay={0.07}><div style={{ borderRadius: R, overflow: "hidden", height: h380 }}>{img("frame-323.png")}</div></Reveal>
                 </div>
                 <div style={{ display: "grid", gridTemplateColumns: three, gap: GAP }}>
-                  <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h320 }}>{img("image 338.png")}</div></Reveal>
-                  <Reveal delay={0.07}><div style={{ borderRadius: R, overflow: "hidden", height: h320 }}>{img("image 295.png")}</div></Reveal>
-                  {!isMobile && <Reveal delay={0.12}><div style={{ borderRadius: R, overflow: "hidden", height: h320 }}>{img("image 270.png")}</div></Reveal>}
+                  <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h320 }}>{img("frame-338.png")}</div></Reveal>
+                  <Reveal delay={0.07}><div style={{ borderRadius: R, overflow: "hidden", height: h320 }}>{img("frame-295.png")}</div></Reveal>
+                  {!isMobile && <Reveal delay={0.12}><div style={{ borderRadius: R, overflow: "hidden", height: h320 }}>{img("frame-270.png")}</div></Reveal>}
                 </div>
                 {isMobile && (
-                  <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h320 }}>{img("image 270.png")}</div></Reveal>
+                  <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h320 }}>{img("frame-270.png")}</div></Reveal>
                 )}
 
                 {/* ВЕЧЕР */}
                 <div style={{ display: "grid", gridTemplateColumns: wideRight, gap: GAP }}>
-                  <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h420 }}>{img("image 244.png")}</div></Reveal>
-                  <Reveal delay={0.07}><div style={{ borderRadius: R, overflow: "hidden", height: h420 }}>{img("image 261.png")}</div></Reveal>
+                  <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h420 }}>{img("frame-244.png")}</div></Reveal>
+                  <Reveal delay={0.07}><div style={{ borderRadius: R, overflow: "hidden", height: h420 }}>{img("frame-261.png")}</div></Reveal>
                 </div>
                 <div style={{ display: "grid", gridTemplateColumns: two, gap: GAP }}>
-                  <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h380 }}>{img("image 262.png")}</div></Reveal>
-                  <Reveal delay={0.07}><div style={{ borderRadius: R, overflow: "hidden", height: h380 }}>{img("image 263.png")}</div></Reveal>
+                  <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h380 }}>{img("frame-262.png")}</div></Reveal>
+                  <Reveal delay={0.07}><div style={{ borderRadius: R, overflow: "hidden", height: h380 }}>{img("frame-263.png")}</div></Reveal>
                 </div>
-                <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h520 }}>{img("image 242.png")}</div></Reveal>
+                <Reveal><div style={{ borderRadius: R, overflow: "hidden", height: h520 }}>{img("frame-242.png")}</div></Reveal>
 
               </div>
             );

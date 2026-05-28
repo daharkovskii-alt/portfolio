@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import NextImage from "next/image";
 import { useRef, useEffect, useState } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useScreenSize } from "@/hooks/use-screen-size";
@@ -107,9 +108,9 @@ function Л2Block({ isMobile }: { isMobile: boolean }) {
   const y = useTransform(scrollYProgress, [0, 1], ["-40%", "40%"]);
   return (
     <div ref={ref} style={{ position: "relative", overflow: "hidden" }}>
-      <img src="/dionis-jewelry/content/л2.png" alt="" style={{ display: "block", width: "100%", height: "auto" }} />
+      <NextImage src="/dionis-jewelry/content/l2.png" alt="" width={1600} height={1000} style={{ display: "block", width: "100%", height: "auto" }} />
       <motion.img
-        src="/dionis-jewelry/content/лого.svg"
+        src="/dionis-jewelry/content/logo.svg"
         alt=""
         style={{
           position: "absolute",
@@ -381,7 +382,7 @@ export function DionisContent() {
       {/* ── content images ── */}
       <div style={{ padding: isMobile ? 0 : "0 40px", backgroundColor: "#000000" }}>
         <video
-          src="/dionis-jewelry/content/главн.mp4"
+          src="/dionis-jewelry/content/main.mp4"
           autoPlay
           muted
           loop
@@ -390,21 +391,21 @@ export function DionisContent() {
         />
       </div>
       <div style={{ padding: isMobile ? 0 : "0 40px", backgroundColor: "#000000" }}>
-        <img src="/dionis-jewelry/content/л1.png?v=2" alt="" style={{ display: "block", width: "100%", height: "auto" }} />
+        <NextImage src="/dionis-jewelry/content/l1.png" alt="" width={1600} height={1000} style={{ display: "block", width: "100%", height: "auto" }} />
       </div>
       <div style={{ padding: isMobile ? 0 : "0 40px", backgroundColor: "#000000" }}>
         <Л2Block isMobile={isMobile} />
       </div>
-      {["л3.png","л4.png"].map((file) => (
+      {["l3.png","l4.png"].map((file) => (
         <div key={file} style={{ padding: isMobile ? 0 : "0 40px", backgroundColor: "#000000" }}>
-          <img src={`/dionis-jewelry/content/${file}`} alt="" style={{ display: "block", width: "100%", height: "auto" }} />
+          <NextImage src={`/dionis-jewelry/content/${file}`} alt="" width={1600} height={1000} style={{ display: "block", width: "100%", height: "auto" }} />
         </div>
       ))}
 
       {/* ── второе.mp4 ── */}
       <div style={{ padding: isMobile ? 0 : "0 40px", backgroundColor: "#000000" }}>
         <video
-          src="/dionis-jewelry/content/ второе.mp4"
+          src="/dionis-jewelry/content/video2.mp4"
           autoPlay
           muted
           loop
@@ -413,12 +414,14 @@ export function DionisContent() {
         />
       </div>
 
-      {["л5.png","л6.png","л7.png","л8.png","л9.png","л10.png","л11.png","л12.png","л13.png","л14.png","л15.png"].map((file) => (
+      {["l5.png","l6.png","l7.png","l8.png","l9.png","l10.png","l11.png","l12.png","l13.png","l14.png","l15.png"].map((file) => (
         <div key={file} style={{ padding: isMobile ? 0 : "0 40px", backgroundColor: "#000000" }}>
-          <img
-            src={`/dionis-jewelry/content/${file}${file === "л11.png" || file === "л5.png" || file === "л6.png" ? "?v=2" : ""}`}
+          <NextImage
+            src={`/dionis-jewelry/content/${file}`}
             alt=""
-            style={file === "л11.png"
+            width={1600}
+            height={1000}
+            style={file === "l11.png"
               ? { display: "block", width: "auto", maxWidth: "100%", height: "auto", margin: "0 auto" }
               : { display: "block", width: "100%", height: "auto" }
             }
