@@ -250,7 +250,7 @@ export function ShortWorksContent() {
           }}
         >
           <Link
-            href="/v2"
+            href="/"
             style={{
               fontFamily: FONT,
               fontSize: "11px",
@@ -484,7 +484,7 @@ export function ShortWorksContent() {
 
       {/* ══ NEXT PROJECT ══ */}
       <div style={{ padding: `clamp(40px,6vh,80px) ${P}` }}>
-        <Link href="/" style={{ textDecoration: "none", display: "block" }}>
+        <Link href="/projects/indiamall-final" style={{ textDecoration: "none", display: "block" }}>
           <motion.div
             whileHover={{ backgroundColor: "rgba(10,10,10,0.03)" }}
             transition={{ duration: 0.25 }}
@@ -508,7 +508,7 @@ export function ShortWorksContent() {
                   marginBottom: "16px",
                 }}
               >
-                Все проекты
+                Следующий проект
               </p>
               <h2
                 style={{
@@ -519,7 +519,7 @@ export function ShortWorksContent() {
                   letterSpacing: "-0.02em",
                 }}
               >
-                Back to home
+                Indiamall
               </h2>
             </div>
             <motion.span

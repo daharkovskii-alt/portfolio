@@ -24,7 +24,6 @@ const IMAGES = [
   { src: `${BASE}/2025/03/14.png` },
   { src: `${BASE}/2025/03/15.png` },
   { src: `${BASE}/2025/03/16.png` },
-  { src: `${BASE}/2025/03/18.png` },
 ];
 
 export function UniversmagContent() {
@@ -52,7 +51,7 @@ export function UniversmagContent() {
             transition={{ delay: 0.3 }}
             style={{ position: "absolute", top: "28px", left: "32px" }}
           >
-            <Link href="/v2" style={{ fontSize: "12px", color: "rgba(255,255,255,0.45)", textDecoration: "none", textTransform: "uppercase", letterSpacing: "0.1em" }}>
+            <Link href="/" style={{ fontSize: "12px", color: "rgba(255,255,255,0.45)", textDecoration: "none", textTransform: "uppercase", letterSpacing: "0.1em" }}>
               ← Back
             </Link>
           </motion.div>
@@ -88,6 +87,34 @@ export function UniversmagContent() {
             style={{ width: "100%", height: "auto", display: "block" }}
           />
         ))}
+      </div>
+
+      {/* ══ NEXT PROJECT ══ */}
+      <div style={{ padding: "clamp(40px,6vh,80px) clamp(16px,4vw,48px)" }}>
+        <Link href="/projects/project-05" style={{ textDecoration: "none", display: "block" }}>
+          <motion.div
+            whileHover={{ backgroundColor: "rgba(10,10,10,0.03)" }}
+            transition={{ duration: 0.25 }}
+            style={{
+              border: "1px solid rgba(10,10,10,0.1)",
+              borderRadius: "20px",
+              padding: "clamp(28px,4vw,56px)",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <div>
+              <p style={{ fontSize: "10px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.14em", color: "rgba(10,10,10,0.35)", marginBottom: "16px" }}>
+                Следующий проект
+              </p>
+              <h2 style={{ fontSize: "clamp(28px,4.5vw,64px)", fontWeight: 300, color: "#0A0A0A", lineHeight: 0.95, letterSpacing: "-0.02em" }}>
+                Мини
+              </h2>
+            </div>
+            <span style={{ fontSize: "28px", color: "rgba(10,10,10,0.3)" }}>→</span>
+          </motion.div>
+        </Link>
       </div>
 
     </main>

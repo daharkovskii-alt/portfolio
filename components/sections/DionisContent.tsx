@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import NextImage from "next/image";
 import { useRef, useEffect, useState } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useScreenSize } from "@/hooks/use-screen-size";
@@ -108,7 +107,7 @@ function Л2Block({ isMobile }: { isMobile: boolean }) {
   const y = useTransform(scrollYProgress, [0, 1], ["-40%", "40%"]);
   return (
     <div ref={ref} style={{ position: "relative", overflow: "hidden" }}>
-      <NextImage src="/dionis-jewelry/content/l2.png" alt="" width={1600} height={1000} style={{ display: "block", width: "100%", height: "auto" }} />
+      <img src="/dionis-jewelry/content/l2.png" alt="" style={{ display: "block", width: "100%", height: "auto" }} />
       <motion.img
         src="/dionis-jewelry/content/logo.svg"
         alt=""
@@ -144,18 +143,6 @@ export function DionisContent() {
           alt=""
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 0 }}
         />
-
-        {/* back button */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          style={{ position: "absolute", top: isMobile ? "20px" : "40px", left: isMobile ? "16px" : "40px", zIndex: 3 }}
-        >
-          <Link href="/v2" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "6px", padding: isMobile ? "10px 16px" : "12px 20px", borderRadius: "66px", border: "1px solid rgba(255,255,255,0.3)", backgroundColor: "#fff", color: "#0a0a0a", fontSize: isMobile ? "12px" : "13px", fontWeight: 400, textDecoration: "none", whiteSpace: "nowrap" }}>
-            <span style={{ fontSize: "10px" }}>←</span>назад
-          </Link>
-        </motion.div>
 
         {/* inner layout */}
         <motion.div
@@ -391,14 +378,14 @@ export function DionisContent() {
         />
       </div>
       <div style={{ padding: isMobile ? 0 : "0 40px", backgroundColor: "#000000" }}>
-        <NextImage src="/dionis-jewelry/content/l1.png" alt="" width={1600} height={1000} style={{ display: "block", width: "100%", height: "auto" }} />
+        <img src="/dionis-jewelry/content/l1.png" alt="" style={{ display: "block", width: "100%", height: "auto" }} />
       </div>
       <div style={{ padding: isMobile ? 0 : "0 40px", backgroundColor: "#000000" }}>
         <Л2Block isMobile={isMobile} />
       </div>
       {["l3.png","l4.png"].map((file) => (
         <div key={file} style={{ padding: isMobile ? 0 : "0 40px", backgroundColor: "#000000" }}>
-          <NextImage src={`/dionis-jewelry/content/${file}`} alt="" width={1600} height={1000} style={{ display: "block", width: "100%", height: "auto" }} />
+          <img src={`/dionis-jewelry/content/${file}`} alt="" style={{ display: "block", width: "100%", height: "auto" }} />
         </div>
       ))}
 
@@ -416,11 +403,9 @@ export function DionisContent() {
 
       {["l5.png","l6.png","l7.png","l8.png","l9.png","l10.png","l11.png","l12.png","l13.png","l14.png","l15.png"].map((file) => (
         <div key={file} style={{ padding: isMobile ? 0 : "0 40px", backgroundColor: "#000000" }}>
-          <NextImage
+          <img
             src={`/dionis-jewelry/content/${file}`}
             alt=""
-            width={1600}
-            height={1000}
             style={file === "l11.png"
               ? { display: "block", width: "auto", maxWidth: "100%", height: "auto", margin: "0 auto" }
               : { display: "block", width: "100%", height: "auto" }
@@ -551,7 +536,7 @@ export function DionisContent() {
       </div>
 
       {/* ── next project ── */}
-      <Link href="/projects/project-01" style={{ display: "block", textDecoration: "none" }}>
+      <Link href="/projects/rif-v2" style={{ display: "block", textDecoration: "none" }}>
         <motion.div
           whileHover={{ backgroundColor: C.dark }}
           transition={{ duration: 0.3 }}
@@ -564,7 +549,7 @@ export function DionisContent() {
               </p>
               <AccentReveal>
                 <h2 style={{ fontFamily: BOUNDED, fontSize: "clamp(40px, 6vw, 88px)", fontWeight: 900, color: C.white, textTransform: "uppercase", lineHeight: 0.9 }}>
-                  INDIAMALL
+                  РИФ
                 </h2>
               </AccentReveal>
             </div>

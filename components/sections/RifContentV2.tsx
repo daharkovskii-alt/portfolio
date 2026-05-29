@@ -1,11 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import NextImage from "next/image";
 import { useRef, useEffect, useState } from "react";
+import { useTheme } from "@/components/providers/ThemeProvider";
 import { motion, useScroll, useTransform, useInView, AnimatePresence } from "framer-motion";
-
-const MotionImage = motion(NextImage);
 import FaultyTerminal from "@/components/ui/FaultyTerminal";
 import { useScreenSize } from "@/hooks/use-screen-size";
 
@@ -492,13 +490,61 @@ function KeyDecisions({ C, dark, tr, isMobile }: { C: typeof DARK_C; dark: boole
   );
 }
 
+/* ─── rif theme toggle ───────────────────────────────────── */
+function RifThemeBtn() {
+  const { theme, toggle } = useTheme();
+  const isLight = theme === "light";
+  return (
+    <motion.button
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.6, delay: 0.4, ease: EASE }}
+      onClick={(e) => {
+        const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+        toggle(rect.left + rect.width / 2, rect.top + rect.height / 2);
+      }}
+      style={{
+        position: "fixed",
+        top: "clamp(16px, 3vw, 40px)",
+        right: "calc(clamp(16px, 3vw, 40px) + 40px + 8px)",
+        zIndex: 9999,
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "40px",
+        height: "40px",
+        borderRadius: "999px",
+        background: isLight ? "#ffffff" : "rgba(255,255,255,0.12)",
+        border: isLight ? "1px solid rgba(0,0,0,0.06)" : "1px solid rgba(255,255,255,0.18)",
+        boxShadow: isLight ? "0 2px 16px rgba(0,0,0,0.08)" : "0 2px 16px rgba(0,0,0,0.2)",
+        color: isLight ? "#0a0a0a" : "#ffffff",
+        cursor: "pointer",
+        transition: "background 0.2s, box-shadow 0.2s",
+      }}
+      onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = isLight ? "#f5f5f5" : "rgba(255,255,255,0.22)"; }}
+      onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = isLight ? "#ffffff" : "rgba(255,255,255,0.12)"; }}
+    >
+      {isLight ? (
+        <svg width="14" height="14" viewBox="0 0 12 12" fill="none">
+          <path d="M10 7.2A4.5 4.5 0 0 1 4.8 2a4.5 4.5 0 1 0 5.2 5.2Z" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      ) : (
+        <svg width="14" height="14" viewBox="0 0 12 12" fill="none">
+          <path d="M6 1v1M6 10v1M1 6H2M10 6h1M2.64 2.64l.71.71M8.65 8.65l.71.71M9.36 2.64l-.71.71M3.35 8.65l-.71.71" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
+          <circle cx="6" cy="6" r="2.2" stroke="currentColor" strokeWidth="1.3"/>
+        </svg>
+      )}
+    </motion.button>
+  );
+}
+
 /* ─── main ────────────────────────────────────────────────── */
 export function RifContentV2() {
   const screen = useScreenSize();
   const isMobile = screen.lessThan("md");
-  const [dark, setDark] = useState(true);
+  const { theme } = useTheme();
+  const dark = theme === "dark";
   const C = dark ? DARK_C : LIGHT_C;
-  const toggle = () => setDark(d => !d);
 
 
 
@@ -550,11 +596,9 @@ export function RifContentV2() {
               animate={{ y: [0, -22, 0] }}
               transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
             >
-              <NextImage
+              <img
                 src="/rif/img-327.png"
                 alt=""
-                width={240}
-                height={240}
                 style={{
                   width: "clamp(140px, 16vw, 240px)",
                   height: "auto",
@@ -576,11 +620,9 @@ export function RifContentV2() {
               animate={{ y: [0, -16, 0] }}
               transition={{ duration: 4.4, repeat: Infinity, ease: "easeInOut", delay: 1.1 }}
             >
-              <NextImage
+              <img
                 src="/rif/img-328.png"
                 alt=""
-                width={285}
-                height={285}
                 style={{
                   width: "clamp(165px, 18vw, 285px)",
                   height: "auto",
@@ -590,12 +632,6 @@ export function RifContentV2() {
               />
             </motion.div>
           </motion.div>
-
-          {/* back */}
-          <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }} style={{ position: "absolute", top: isMobile ? "20px" : "40px", left: isMobile ? "16px" : "40px" }}>
-            <Link href="/v2" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "6px", padding: "10px 16px", borderRadius: "66px", border: "1px solid rgba(255,255,255,0.3)", backgroundColor: "#fff", color: "#0a0a0a", fontSize: "13px", fontWeight: 400, textDecoration: "none", whiteSpace: "nowrap" }}><span style={{ fontSize: "10px" }}>←</span>назад</Link>
-          </motion.div>
-
 
           <motion.div
             style={{
@@ -629,10 +665,8 @@ export function RifContentV2() {
         </div>
       </div>
 
-      {/* ── fixed toggle ── */}
-      <div style={{ position: "fixed", top: "16px", right: isMobile ? "12px" : "40px", zIndex: 50 }}>
-        <ToggleBtn dark={dark} onToggle={toggle} />
-      </div>
+      {/* ── theme toggle ── */}
+      <RifThemeBtn />
 
       {/* ── BENTO BODY ── */}
       <div style={{ padding: isMobile ? "20px 12px" : `clamp(40px, 5vw, 72px) clamp(20px, 5vw, 80px)` }}>
@@ -712,11 +746,9 @@ export function RifContentV2() {
                 {/* БЫЛО */}
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "12px" }}>
                   {isMobile && <span style={{ fontSize: "11px", fontWeight: 700, color: C.label, textTransform: "uppercase", letterSpacing: "0.12em", transition: tr }}>Было</span>}
-                  <NextImage
+                  <img
                     src="/rif/logo-old.png"
                     alt="Старый логотип РИФ"
-                    width={260}
-                    height={260}
                     style={{ width: isMobile ? "140px" : "clamp(160px,18vw,260px)", height: isMobile ? "140px" : "clamp(160px,18vw,260px)", objectFit: "contain", display: "block", opacity: 0.72 }}
                   />
                   {!isMobile && <span style={{ fontSize: "11px", fontWeight: 700, color: C.label, textTransform: "uppercase", letterSpacing: "0.12em", flexShrink: 0, transition: tr }}>Было</span>}
@@ -791,20 +823,6 @@ export function RifContentV2() {
                   }}
                 />
 
-                {/* пикс — foreground parallax */}
-                <motion.img
-                  src="/rif/пикс.svg"
-                  alt=""
-                  style={{
-                    position: "absolute",
-                    right: "9%",
-                    bottom: "calc(48% - 20px)",
-                    height: "clamp(40px,5vw,65px)",
-                    imageRendering: "pixelated",
-                    pointerEvents: "none",
-                    y: piksY,
-                  }}
-                />
               </div>
             </div>
           </Reveal>
@@ -868,10 +886,10 @@ export function RifContentV2() {
               </p>
               <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
                 <div style={{ borderRadius: "16px", overflow: "hidden" }}>
-                  <NextImage src="/rif/main1.png" alt="Главная страница РИФ 2025" width={1200} height={800} style={{ width: "100%", height: "auto", display: "block" }} />
+                  <img src="/rif/main1.png" alt="Главная страница РИФ 2025" style={{ width: "100%", height: "auto", display: "block" }} />
                 </div>
                 <div style={{ borderRadius: "16px", overflow: "hidden" }}>
-                  <NextImage src="/rif/main2.png" alt="РИФ 2025 — страница сайта" width={1200} height={800} style={{ width: "100%", height: "auto", display: "block" }} />
+                  <img src="/rif/main2.png" alt="РИФ 2025 — страница сайта" style={{ width: "100%", height: "auto", display: "block" }} />
                 </div>
               </div>
             </div>
@@ -889,11 +907,9 @@ export function RifContentV2() {
                   Так же дизайн был адаптирован под мобильные устройства.
                 </p>
               </div>
-              <MotionImage
+              <motion.img
                 src="/rif/mob3.png"
                 alt="Мобильная версия сайта РИФ 2025"
-                width={900}
-                height={1200}
                 style={{
                   width: isMobile ? "72%" : "86%",
                   height: "auto",
@@ -957,7 +973,7 @@ export function RifContentV2() {
           {(() => {
             const f = (name: string) => `/rif/frames/${name}`;
             const img = (name: string, pos = "center center") => (
-              <NextImage src={f(name)} alt="РИФ 2025" fill style={{ objectFit: "cover", objectPosition: pos }} />
+              <img src={f(name)} alt="РИФ 2025" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: pos, display: "block" }} />
             );
             const two = isMobile ? "1fr 1fr" : "1fr 1fr";
             const three = isMobile ? "1fr 1fr" : "1fr 1fr 1fr";
@@ -1110,7 +1126,7 @@ export function RifContentV2() {
             </div>
           </Reveal>
 
-          <Link href="/projects/project-02" style={{ display: "block", textDecoration: "none" }}>
+          <Link href="/projects/concept-univermag" style={{ display: "block", textDecoration: "none" }}>
             <motion.div
               whileHover={{ scale: 1.008 }}
               transition={{ duration: 0.3 }}
@@ -1120,7 +1136,7 @@ export function RifContentV2() {
                 <div>
                   <Label color={C.label}>Следующий проект</Label>
                   <h2 style={{ fontSize: "clamp(52px, 7.5vw, 108px)", fontWeight: 900, color: C.title, lineHeight: 0.88, margin: "20px 0 0", transition: tr }}>
-                    DIONIS
+                    ТОЧКА БАНК
                   </h2>
                 </div>
                 <motion.div

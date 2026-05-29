@@ -5,9 +5,8 @@ import { useTheme } from "@/components/providers/ThemeProvider";
 
 export const CURTAIN_H = 700;
 
-const BALL_COUNT = 10;
-const BALL_IMAGES = Array.from(
-  { length: BALL_COUNT },
+const ALL_BALL_IMAGES = Array.from(
+  { length: 10 },
   (_, i) => `/footer-balls/ball-${i + 1}.png`
 );
 const RADIUS = 72;
@@ -56,6 +55,7 @@ export function CurtainFooter() {
 
       // Radius scales with viewport width, capped at 72px
       const radius = Math.min(W / 7, 72);
+      const BALL_IMAGES = W < 640 ? ALL_BALL_IMAGES.slice(0, 5) : ALL_BALL_IMAGES;
 
       const engine = Engine.create({ gravity: { x: 0, y: 2.5 } });
 

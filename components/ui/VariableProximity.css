@@ -1,0 +1,25 @@
+.variable-proximity {
+  font-family: inherit;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  text-rendering: optimizeLegibility;
+}
+
+/* On devices without a fine pointer, freeze the effect — the per-frame
+   reflows are wasted work when the user can't trigger them anyway. */
+@media (hover: none) {
+  .variable-proximity {
+    font-variation-settings: 'wght' 300;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

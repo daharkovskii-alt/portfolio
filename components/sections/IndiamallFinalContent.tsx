@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import NextImage from "next/image";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
@@ -83,8 +82,8 @@ function BeforeScroll() {
           style={{ display: "flex", gap: "10px", width: "max-content" }}
         >
           {loop.map((item, i) => (
-            <div key={`${item.src}-${i}`} style={{ flexShrink: 0, height: "300px", borderRadius: "14px", overflow: "hidden", backgroundColor: CARD, position: "relative", width: "400px" }}>
-              <NextImage src={item.src} alt={item.alt} fill style={{ objectFit: "cover" }} />
+            <div key={`${item.src}-${i}`} style={{ flexShrink: 0, height: "300px", borderRadius: "14px", overflow: "hidden", backgroundColor: CARD, width: "400px" }}>
+              <img src={item.src} alt={item.alt} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
             </div>
           ))}
         </motion.div>
@@ -112,7 +111,7 @@ function ParallaxImg({ src, alt, height = "clamp(300px, 45vw, 640px)", objectPos
   return (
     <div ref={ref} style={{ borderRadius: "16px", overflow: "hidden", position: "relative", height }}>
       <motion.div style={{ y, position: "absolute", top: "-15%", left: 0, right: 0, bottom: "-15%" }}>
-        <NextImage src={src} alt={alt} fill style={{ objectFit: "cover", objectPosition }} />
+        <img src={src} alt={alt} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition, display: "block" }} />
       </motion.div>
     </div>
   );
@@ -158,17 +157,6 @@ export function IndiamallFinalContent() {
             style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%", opacity: 0.65 }}
           />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent 30%, rgba(20,20,20,0.9) 100%)" }} />
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            style={{ position: "absolute", top: "28px", left: "32px", zIndex: 3 }}
-          >
-            <Link href="/v2" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "6px", padding: "12px 20px", borderRadius: "66px", border: "1px solid rgba(255,255,255,0.3)", backgroundColor: "#fff", color: "#0a0a0a", fontSize: "13px", fontWeight: 400, textDecoration: "none", whiteSpace: "nowrap" }}>
-              <span style={{ fontSize: "10px" }}>←</span>назад
-            </Link>
-          </motion.div>
 
           <motion.div style={{ position: "absolute", bottom: "clamp(40px,6vh,80px)", left: P, right: P, opacity: heroOpacity }}>
             <motion.p
@@ -259,11 +247,11 @@ export function IndiamallFinalContent() {
           <div style={{ borderRadius: "24px", backgroundColor: CARD, padding: "clamp(24px, 4vw, 48px)", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(24px, 4vw, 64px)" }} className="fim-logo-grid">
             <div>
               <p style={{ fontSize: "11px", fontWeight: 600, color: DIM, textTransform: "uppercase", marginBottom: "24px" }}>Старый лого</p>
-              <NextImage src="/assets/indiamall-logo-old.svg" alt="Старый логотип Indiamall" width={400} height={200} style={{ width: "100%", height: "auto", display: "block" }} />
+              <img src="/assets/indiamall-logo-old.svg" alt="Старый логотип Indiamall" style={{ width: "100%", height: "auto", display: "block" }} />
             </div>
             <div>
               <p style={{ fontSize: "11px", fontWeight: 600, color: DIM, textTransform: "uppercase", marginBottom: "24px" }}>Ресерч похожих лого</p>
-              <NextImage src="/assets/indiamall-research.svg" alt="Ресерч логотипов" width={400} height={200} style={{ width: "100%", height: "auto", display: "block" }} />
+              <img src="/assets/indiamall-research.svg" alt="Ресерч логотипов" style={{ width: "100%", height: "auto", display: "block" }} />
             </div>
           </div>
         </Reveal>
@@ -477,13 +465,13 @@ export function IndiamallFinalContent() {
           {/* Строение */}
           <ScaleReveal>
             <div style={{ backgroundColor: CARD, borderRadius: "16px", overflow: "hidden", aspectRatio: "1/1", display: "flex", alignItems: "center", justifyContent: "center", padding: "clamp(20px,3vw,40px)" }}>
-              <NextImage src="/assets/indiamall-building.png" alt="Строение бренда" fill style={{ objectFit: "contain" }} />
+              <img src="/assets/indiamall-building.png" alt="Строение бренда" style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }} />
             </div>
           </ScaleReveal>
           {/* Лого мини цветной */}
           <ScaleReveal delay={0.06}>
             <div style={{ backgroundColor: "#F88740", borderRadius: "16px", overflow: "hidden", aspectRatio: "1/1", display: "flex", alignItems: "center", justifyContent: "center", padding: "clamp(20px,3vw,40px)" }}>
-              <NextImage src="/assets/indiamall-logo-mini.svg" alt="Мини логотип Indiamall" width={200} height={200} style={{ width: "60%", height: "60%", objectFit: "contain", display: "block" }} />
+              <img src="/assets/indiamall-logo-mini.svg" alt="Мини логотип Indiamall" style={{ width: "60%", height: "60%", objectFit: "contain", display: "block" }} />
             </div>
           </ScaleReveal>
           {/* Билборд */}
@@ -493,19 +481,19 @@ export function IndiamallFinalContent() {
           {/* Глас 1 */}
           <ScaleReveal delay={0.12}>
             <div style={{ borderRadius: "16px", overflow: "hidden" }}>
-              <NextImage src="/assets/indiamall-glas.png" alt="Indiamall глас" width={800} height={600} style={{ width: "100%", height: "auto", display: "block" }} />
+              <img src="/assets/indiamall-glas.png" alt="Indiamall глас" style={{ width: "100%", height: "auto", display: "block" }} />
             </div>
           </ScaleReveal>
           {/* Глас 2 */}
           <ScaleReveal delay={0.16}>
             <div style={{ borderRadius: "16px", overflow: "hidden" }}>
-              <NextImage src="/assets/indiamall-glas2.png" alt="Indiamall глас 2" width={800} height={600} style={{ width: "100%", height: "auto", display: "block" }} />
+              <img src="/assets/indiamall-glas2.png" alt="Indiamall глас 2" style={{ width: "100%", height: "auto", display: "block" }} />
             </div>
           </ScaleReveal>
           {/* Бан 1 + подпись */}
           <ScaleReveal delay={0.18}>
             <div style={{ borderRadius: "16px", overflow: "hidden", position: "relative" }}>
-              <NextImage src="/assets/indiamall-ban1.png" alt="Indiamall 3D иконки" width={800} height={600} style={{ width: "100%", height: "auto", display: "block" }} />
+              <img src="/assets/indiamall-ban1.png" alt="Indiamall 3D иконки" style={{ width: "100%", height: "auto", display: "block" }} />
               <p style={{ position: "absolute", bottom: "clamp(16px,3%,28px)", left: 0, right: 0, fontSize: "clamp(13px,1.2vw,16px)", color: MUTED, textAlign: "center", lineHeight: 1.5 }}>
                 Пример стилизации <strong style={{ color: TEXT }}>3Д иконок</strong> для сайта
               </p>
@@ -514,7 +502,7 @@ export function IndiamallFinalContent() {
           {/* Бан 2 */}
           <ScaleReveal delay={0.22}>
             <div style={{ borderRadius: "16px", overflow: "hidden" }}>
-              <NextImage src="/assets/indiamall-ban2.png" alt="Indiamall бан 2" width={800} height={600} style={{ width: "100%", height: "auto", display: "block" }} />
+              <img src="/assets/indiamall-ban2.png" alt="Indiamall бан 2" style={{ width: "100%", height: "auto", display: "block" }} />
             </div>
           </ScaleReveal>
           {/* Пакет — на всю ширину, параллакс */}
@@ -524,13 +512,13 @@ export function IndiamallFinalContent() {
           {/* Ручка */}
           <ScaleReveal delay={0.26}>
             <div style={{ borderRadius: "16px", overflow: "hidden" }}>
-              <NextImage src="/assets/indiamall-pen.png" alt="Ручка Indiamall" width={800} height={600} style={{ width: "100%", height: "auto", display: "block" }} />
+              <img src="/assets/indiamall-pen.png" alt="Ручка Indiamall" style={{ width: "100%", height: "auto", display: "block" }} />
             </div>
           </ScaleReveal>
           {/* Бейдж */}
           <ScaleReveal delay={0.28}>
             <div style={{ borderRadius: "16px", overflow: "hidden" }}>
-              <NextImage src="/assets/indiamall-badge.png" alt="Бейдж Indiamall" width={800} height={600} style={{ width: "100%", height: "auto", display: "block" }} />
+              <img src="/assets/indiamall-badge.png" alt="Бейдж Indiamall" style={{ width: "100%", height: "auto", display: "block" }} />
             </div>
           </ScaleReveal>
           {/* Визитка с параллаксом — на всю ширину */}
@@ -561,7 +549,7 @@ export function IndiamallFinalContent() {
 
       {/* ══ 06 — РЕЗУЛЬТАТ ══ */}
       <div className="fim-section" style={{ padding: `0 ${P}`, paddingBottom: S }}>
-        <SectionLabel>06 — Результат</SectionLabel>
+        <div style={{ textAlign: "center" }}><SectionLabel>06 — Результат</SectionLabel></div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "10px" }} className="fim-result">
           <ScaleReveal style={{ gridColumn: "1 / -1" }}>
             <motion.div

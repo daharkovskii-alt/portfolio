@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect } from "react";
 import Link from "next/link";
+import { ProjectsLabel } from "@/components/sections/ProjectsLabel";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -37,19 +38,19 @@ const projects: Project[] = [
     role: "Арт директор",
     year: "2024",
     description: "Арт-дирекшн для московского ювелирного бренда",
-    cover: "/dionis-jewelry/content/open3.png",
+    cover: "/dionis-jewelry/content/open1.jpg",
     tags: ["Jewelry", "B2C e-commerce"],
   },
   {
     slug: "rif-v2",
     number: "03",
-    title: "РИФ 2025",
+    title: "РИФ",
     role: "Арт директор",
     year: "2025",
     description: "Айдентика Российского Интернет Форума",
     cover: "/rif/cover.png",
     coverFit: "contain",
-    tags: ["Identity", "Digital"],
+    tags: ["Event", "Digital"],
   },
   {
     slug: "concept-univermag",
@@ -57,9 +58,9 @@ const projects: Project[] = [
     title: "Точка банк",
     role: "Стратег / Концепт",
     year: "2025",
-    description: "Концепция развития — превращение торговой площадки в культурный центр предпринимательской идентичности",
+    description: "Креативная концепция",
     tags: ["Creative Concept", "Strategy"],
-    bgColor: "#888",
+    bgColor: "#6620D4",
   },
   {
     slug: "project-05",
@@ -74,13 +75,11 @@ const projects: Project[] = [
 ];
 
 function ProjectCard({ project }: { project: Project }) {
-  const wrapRef    = useRef<HTMLDivElement>(null);
-  const imgRef     = useRef<HTMLElement>(null);
-  const roleRef    = useRef<HTMLDivElement>(null);
-  const numberRef  = useRef<HTMLDivElement>(null);
-  const titleRef   = useRef<HTMLHeadingElement>(null);
-  const descRef    = useRef<HTMLParagraphElement>(null);
-  const btnRef     = useRef<HTMLDivElement>(null);
+  const wrapRef       = useRef<HTMLDivElement>(null);
+  const imgRef        = useRef<HTMLElement>(null);
+  const roleRef       = useRef<HTMLDivElement>(null);
+  const textGroupRef  = useRef<HTMLDivElement>(null);
+  const btnRef        = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!wrapRef.current) return;
@@ -94,23 +93,10 @@ function ProjectCard({ project }: { project: Project }) {
         scrub: true,
       };
 
-      // image — baseline parallax
-      gsap.fromTo(imgRef.current,   { y: "-10%" }, { y: "10%",  ease: "none", scrollTrigger: trigger });
-
-      // role label — drifts down slowly (feels furthest away)
-      gsap.fromTo(roleRef.current,  { y: -8 },     { y: 18,     ease: "none", scrollTrigger: trigger });
-
-      // number — subtle upward drift
-      gsap.fromTo(numberRef.current,{ y: 12 },     { y: -18,    ease: "none", scrollTrigger: trigger });
-
-      // title — fastest, rushes toward viewer
-      gsap.fromTo(titleRef.current, { y: 40 },     { y: -55,    ease: "none", scrollTrigger: trigger });
-
-      // description — medium speed
-      gsap.fromTo(descRef.current,  { y: 20 },     { y: -30,    ease: "none", scrollTrigger: trigger });
-
-      // button — slightly less than title, own layer
-      gsap.fromTo(btnRef.current,   { y: 28 },     { y: -38,    ease: "none", scrollTrigger: trigger });
+      gsap.fromTo(imgRef.current,       { y: "-6%" },  { y: "6%",   ease: "none", scrollTrigger: trigger });
+      gsap.fromTo(roleRef.current,      { y: -4 },     { y: 10,     ease: "none", scrollTrigger: trigger });
+      gsap.fromTo(textGroupRef.current, { y: 18 },     { y: -24,    ease: "none", scrollTrigger: trigger });
+      gsap.fromTo(btnRef.current,       { y: 14 },     { y: -18,    ease: "none", scrollTrigger: trigger });
     });
 
     return () => ctx.revert();
@@ -219,8 +205,9 @@ function ProjectCard({ project }: { project: Project }) {
           </p>
         </div>
 
-        {/* bottom left: number + title + description */}
+        {/* bottom left: title + description — move as one unit */}
         <div
+          ref={textGroupRef}
           className="card-bottom"
           style={{
             position: "absolute",
@@ -230,7 +217,6 @@ function ProjectCard({ project }: { project: Project }) {
           }}
         >
           <h3
-            ref={titleRef}
             className="card-title"
             style={{
               fontSize: "clamp(28px,5.5vw,80px)",
@@ -243,7 +229,7 @@ function ProjectCard({ project }: { project: Project }) {
           >
             {project.title}
           </h3>
-          <p ref={descRef} className="card-desc" style={{ fontSize: "14px", color: "rgba(255,255,255,0.5)", lineHeight: 1.5, maxWidth: "480px", margin: 0 }}>
+          <p className="card-desc" style={{ fontSize: "14px", color: "rgba(255,255,255,0.5)", lineHeight: 1.5, maxWidth: "480px", margin: 0 }}>
             {project.description}
           </p>
         </div>
@@ -285,18 +271,7 @@ export function ProjectsParallaxSection() {
         padding: "80px clamp(12px, 2.5vw, 40px) 120px",
       }}
     >
-      {/* section label */}
-      <p
-        style={{
-          fontSize: "11px",
-          color: "var(--c-fg-subtle)",
-          textTransform: "uppercase",
-          letterSpacing: "0.18em",
-          marginBottom: "40px",
-        }}
-      >
-        Projects
-      </p>
+      <ProjectsLabel />
 
       <div style={{ display: "flex", flexDirection: "column", gap: "clamp(12px, 2vw, 24px)" }}>
         {projects.slice(0, 3).map((p) => (

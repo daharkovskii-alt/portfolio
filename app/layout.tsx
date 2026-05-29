@@ -3,6 +3,7 @@ import "./globals.css";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { CurtainFooter } from "@/components/sections/CurtainFooter";
+import { GlobalNav } from "@/components/layout/GlobalNav";
 
 export const metadata: Metadata = {
   title: "Daniil Kharkovskiy — Creative Developer & Art Director",
@@ -20,6 +21,7 @@ export default function RootLayout({
       <body>
         <ThemeProvider>
           <SmoothScroll>
+            <GlobalNav />
             <div style={{ position: "relative" }}>
               <CurtainFooter />
               <div
