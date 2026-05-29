@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ProjectsLabel } from "@/components/sections/ProjectsLabel";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -144,18 +145,19 @@ function ProjectCard({ project }: { project: Project }) {
                 }}
               />
             ) : (
-              <img
-                ref={imgRef as React.RefObject<HTMLImageElement>}
-                src={project.cover}
-                alt={project.title}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: project.coverFit ?? "cover",
-                  display: "block",
-                  willChange: "transform",
-                }}
-              />
+              <div
+                ref={imgRef as React.RefObject<HTMLDivElement>}
+                style={{ position: "relative", width: "100%", height: "100%", willChange: "transform" }}
+              >
+                <Image
+                  src={project.cover!}
+                  alt={project.title}
+                  fill
+                  priority={project.number === "01"}
+                  sizes="(max-width: 640px) 100vw, 50vw"
+                  style={{ objectFit: project.coverFit ?? "cover" }}
+                />
+              </div>
             )}
           </div>
         )}
