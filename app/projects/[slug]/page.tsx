@@ -17,6 +17,16 @@ const titles: Record<string, string> = {
   "project-05": "Short Works — D.KHARKOVSKIY",
 };
 
+export async function generateStaticParams() {
+  return [
+    { slug: "indiamall-final" },
+    { slug: "project-02" },
+    { slug: "rif-v2" },
+    { slug: "concept-univermag" },
+    { slug: "project-05" },
+  ];
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   return { title: titles[slug] ?? `${slug.replace(/-/g, " ").toUpperCase()} — D.KHARKOVSKIY` };
