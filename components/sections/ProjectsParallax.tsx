@@ -29,7 +29,7 @@ const projects: Project[] = [
     role: "Ведущий дизайнер",
     year: "2024",
     description: "Ведущий дизайнер B2B компании",
-    cover: "/assets/indiamall.png",
+    cover: "/assets/indiamall.webp",
     tags: ["B2B e-commerce"],
   },
   {
@@ -39,7 +39,7 @@ const projects: Project[] = [
     role: "Арт директор",
     year: "2024",
     description: "Арт-дирекшн для московского ювелирного бренда",
-    cover: "/dionis-jewelry/content/open1.jpg",
+    cover: "/dionis-jewelry/content/open1.webp",
     tags: ["Jewelry", "B2C e-commerce"],
   },
   {
@@ -49,7 +49,7 @@ const projects: Project[] = [
     role: "Арт директор",
     year: "2025",
     description: "Айдентика Российского Интернет Форума",
-    cover: "/rif/cover.png",
+    cover: "/rif/cover.webp",
     coverFit: "contain",
     tags: ["Event", "Digital"],
   },
@@ -70,7 +70,7 @@ const projects: Project[] = [
     role: "Дизайнер",
     year: "2025",
     description: "Короткие проекты",
-    cover: "/assets/short.png",
+    cover: "/assets/short.webp",
     tags: ["Design"],
   },
 ];
