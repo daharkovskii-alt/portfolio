@@ -4,6 +4,7 @@ import { SmoothScroll } from "@/components/providers/SmoothScroll";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { CurtainFooter } from "@/components/sections/CurtainFooter";
 import { GlobalNav } from "@/components/layout/GlobalNav";
+import { YandexMetrika } from "@/components/analytics/YandexMetrika";
 
 export const metadata: Metadata = {
   title: "Daniil Kharkovskiy — Creative Developer & Art Director",
@@ -19,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
+        <YandexMetrika />
         <ThemeProvider>
           <SmoothScroll>
             <GlobalNav />
