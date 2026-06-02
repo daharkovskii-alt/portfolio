@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const EASE = [0.16, 1, 0.3, 1] as [number, number, number, number];
 const P = "clamp(20px, 5vw, 80px)";
 
-const BASE = "https://hardani.ru/wp-content/uploads";
+const BASE = "/wp-uploads";
 
 const IMAGES = [
   { src: `${BASE}/2025/03/Главная.png` },

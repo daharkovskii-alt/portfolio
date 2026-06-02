@@ -6,8 +6,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 const EASE = [0.16, 1, 0.3, 1] as [number, number, number, number];
 const FONT = "'Afacad', 'Inter', system-ui, sans-serif";
-const BASE_IMG = "https://hardani.ru/wp-content/uploads";
-const BASE_VID = "https://hardani.ru/wp-content/uploads/2025/07";
+const BASE_IMG = "/wp-uploads";
+const BASE_VID = "/wp-uploads/2025/07";
 
 /* ─── Primitives ─── */
 
