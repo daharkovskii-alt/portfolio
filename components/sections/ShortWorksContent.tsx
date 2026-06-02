@@ -88,29 +88,6 @@ function Img({
   );
 }
 
-function Vid({ src, aspect = "16/9" }: { src: string; aspect?: string }) {
-  return (
-    <Reveal>
-      <div
-        style={{
-          width: "100%",
-          aspectRatio: aspect,
-          overflow: "hidden",
-          lineHeight: 0,
-        }}
-      >
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          src={src}
-          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-        />
-      </div>
-    </Reveal>
-  );
-}
 
 function HR() {
   return (
@@ -364,7 +341,7 @@ export function ShortWorksContent() {
       {/* ══ BLOCK 01 ══ */}
       <div style={{ padding: `20px ${P}` }}>
         <div style={{ marginBottom: GAP }}>
-          <Vid src={`${BASE_VID}/%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D1%8C-%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0-2025-07-25-%D0%B2-19.27.04.mp4`} />
+          <Img src={`${BASE_VID}/screen-1.gif`} alt="Short work animation" />
         </div>
 
         <div style={{ marginBottom: GAP }}>
@@ -374,29 +351,15 @@ export function ShortWorksContent() {
           <Img src={`${BASE_IMG}/2025/03/3fa.png`} alt="Short work 02" />
         </div>
 
-        <div style={{ marginBottom: GAP }}>
-          <Vid src={`${BASE_VID}/%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D1%8C-%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0-2025-07-30-%D0%B2-18.48.17.mov`} />
-        </div>
-
         <Img src={`${BASE_IMG}/2025/03/5fa.png`} alt="Short work 03" />
       </div>
 
       {/* ══ BLOCK 02 ══ */}
       <div style={{ padding: `20px ${P}` }}>
         <div style={{ marginBottom: GAP }}>
-          <Vid src={`${BASE_VID}/%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D1%8C-%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0-2025-07-30-%D0%B2-18.53.45.mp4`} />
-        </div>
-        <div style={{ marginBottom: GAP }}>
-          <Vid src={`${BASE_VID}/video-output-78E13B33-0989-4355-925C-7BC5C4524C4D.mp4`} />
-        </div>
-
-        <div style={{ marginBottom: GAP }}>
           <Img src={`${BASE_IMG}/2025/03/6fa.png`} alt="Short work 04" />
         </div>
 
-        <div style={{ marginBottom: GAP }}>
-          <Vid src={`${BASE_VID}/PIZDEC.mp4`} />
-        </div>
         <Img src={`${BASE_IMG}/2025/03/7fa.png`} alt="Short work 05" />
       </div>
 
@@ -422,10 +385,6 @@ export function ShortWorksContent() {
       {/* ══ BLOCK 04 ══ */}
       <div style={{ padding: `20px ${P}` }}>
         <div style={{ marginBottom: GAP }}>
-          <Vid src={`${BASE_VID}/%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D1%8C-%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0-2025-07-25-%D0%B2-16.46.58.mp4`} />
-        </div>
-
-        <div style={{ marginBottom: GAP }}>
           <Img src={`${BASE_IMG}/2025/03/13fa.png`} alt="Short work 10" />
         </div>
         <div style={{ marginBottom: GAP }}>
@@ -446,10 +405,6 @@ export function ShortWorksContent() {
         </div>
         <div style={{ marginBottom: GAP }}>
           <Img src={`${BASE_IMG}/2025/07/%D0%BA%D0%B6%D0%BF%D1%82%D0%BF-%D0%B0.png`} alt="Short work 16" />
-        </div>
-
-        <div style={{ marginBottom: GAP }}>
-          <Vid src={`${BASE_VID}/%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D1%8C-%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0-2025-07-25-%D0%B2-14.58.18.mp4`} />
         </div>
 
         <Img src={`${BASE_IMG}/2025/07/3222332.png`} alt="Short work 17" />
