@@ -9,7 +9,7 @@ import { YandexMetrika } from "@/components/analytics/YandexMetrika";
 export const metadata: Metadata = {
   title: "Daniil Kharkovskiy — Creative Developer & Art Director",
   description:
-    "Digital identity of Daniil Kharkovskiy. Creative developer, art director, and designer building premium digital experiences.",
+    "Creative developer, art director, and designer building premium digital experiences.",
 };
 
 export default function RootLayout({
