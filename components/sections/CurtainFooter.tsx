@@ -178,7 +178,14 @@ export function CurtainFooter() {
 
     run();
 
-    const ro = new ResizeObserver(run);
+    let prevW = canvas.offsetWidth;
+    const ro = new ResizeObserver(() => {
+      const newW = canvas.offsetWidth;
+      if (Math.abs(newW - prevW) > 20) {
+        prevW = newW;
+        run();
+      }
+    });
     ro.observe(canvas);
 
     return () => {
