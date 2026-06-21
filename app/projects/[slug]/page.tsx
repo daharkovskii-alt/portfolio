@@ -14,7 +14,7 @@ const titles: Record<string, string> = {
   "dionis-jewelry": "DIONIS Jewelry — D.KHARKOVSKIY",
   "rif-v2":     "РИФ 2025 — D.KHARKOVSKIY",
   "concept-univermag": "Универмаг — D.KHARKOVSKIY",
-  "project-05": "Short Works — D.KHARKOVSKIY",
+  "mini": "Short Works — D.KHARKOVSKIY",
 };
 
 export async function generateStaticParams() {
@@ -23,7 +23,7 @@ export async function generateStaticParams() {
     { slug: "dionis-jewelry" },
     { slug: "rif-v2" },
     { slug: "concept-univermag" },
-    { slug: "project-05" },
+    { slug: "mini" },
   ];
 }
 
@@ -38,6 +38,6 @@ export default async function ProjectPage({ params }: Props) {
   if (slug === "dionis-jewelry") return <DionisContent />;
   if (slug === "rif-v2")     return <RifContentV2 />;
   if (slug === "concept-univermag") return <UniversmagContent />;
-  if (slug === "project-05") return <ShortWorksContent />;
+  if (slug === "mini") return <ShortWorksContent />;
   return null;
 }

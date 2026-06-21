@@ -66,7 +66,7 @@ const projects: Project[] = [
     bgColor: "#6620D4",
   },
   {
-    slug: "project-05",
+    slug: "mini",
     number: "05",
     title: "Мини",
     role: "Дизайнер",
