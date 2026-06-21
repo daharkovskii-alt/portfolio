@@ -19,6 +19,7 @@ type Project = {
   coverFit?: "cover" | "contain";
   coverVideo?: string;
   bgColor?: string;
+  href?: string;
 };
 
 const projects: Project[] = [
@@ -34,6 +35,7 @@ const projects: Project[] = [
   },
   {
     slug: "dionis-jewelry",
+    href: "/dionis-jewelry",
     number: "02",
     title: "Dionis",
     role: "Арт директор",
@@ -104,7 +106,7 @@ function ProjectCard({ project }: { project: Project }) {
   }, []);
 
   return (
-    <Link href={`/projects/${project.slug}`} style={{ display: "block" }}>
+    <Link href={project.href ?? `/projects/${project.slug}`} style={{ display: "block" }}>
       <div
         ref={wrapRef}
         className="group"
