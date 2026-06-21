@@ -5,8 +5,9 @@ import { useTheme } from "@/components/providers/ThemeProvider";
 
 export const CURTAIN_H = 700;
 
-const ALL_BALL_IMAGES = Array.from(
-  { length: 10 },
+const BALL_COUNT = 10;
+const BALL_IMAGES = Array.from(
+  { length: BALL_COUNT },
   (_, i) => `/footer-balls/ball-${i + 1}.png`
 );
 const RADIUS = 72;
@@ -55,7 +56,6 @@ export function CurtainFooter() {
 
       // Radius scales with viewport width, capped at 72px
       const radius = Math.min(W / 7, 72);
-      const BALL_IMAGES = W < 640 ? ALL_BALL_IMAGES.slice(0, 5) : ALL_BALL_IMAGES;
 
       const engine = Engine.create({ gravity: { x: 0, y: 2.5 } });
 
@@ -75,6 +75,12 @@ export function CurtainFooter() {
       const scales = [1, 1.08, 1, 1.06, 1.10, 1, 1.07, 1, 1.05, 1];
 
       const cols = Math.max(1, Math.floor(W / (radius * 2.4)));
+      const loadedAlpha = new Float32Array(images.length);
+      images.forEach((img, i) => {
+        if (img.complete && img.naturalWidth > 0) loadedAlpha[i] = 1;
+        else img.onload = () => { loadedAlpha[i] = 0.01; };
+      });
+
       const bodies = images.map((img, i) => {
         const r = radius * (scales[i] ?? 1);
         const col = i % cols;
@@ -143,11 +149,15 @@ export function CurtainFooter() {
 
         ctx.clearRect(0, 0, W, H);
 
-        bodies.forEach(({ body, img, r }) => {
+        bodies.forEach(({ body, img, r }, i) => {
+          if (loadedAlpha[i] <= 0) return;
+          if (loadedAlpha[i] < 1) loadedAlpha[i] = Math.min(1, loadedAlpha[i] + 0.03);
+
           const { x, y } = body.position;
           const angle = body.angle;
 
           ctx.save();
+          ctx.globalAlpha = loadedAlpha[i];
           ctx.translate(x, y);
           ctx.rotate(angle);
 
@@ -157,12 +167,10 @@ export function CurtainFooter() {
 
           if (img.complete && img.naturalWidth > 0) {
             ctx.drawImage(img, -r, -r, r * 2, r * 2);
-          } else {
-            ctx.fillStyle = "#444";
-            ctx.fill();
           }
 
           ctx.restore();
+          ctx.globalAlpha = 1;
         });
 
         animId = requestAnimationFrame(tick);
@@ -178,14 +186,7 @@ export function CurtainFooter() {
 
     run();
 
-    let prevW = canvas.offsetWidth;
-    const ro = new ResizeObserver(() => {
-      const newW = canvas.offsetWidth;
-      if (Math.abs(newW - prevW) > 20) {
-        prevW = newW;
-        run();
-      }
-    });
+    const ro = new ResizeObserver(run);
     ro.observe(canvas);
 
     return () => {

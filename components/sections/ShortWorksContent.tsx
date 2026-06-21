@@ -6,8 +6,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 const EASE = [0.16, 1, 0.3, 1] as [number, number, number, number];
 const FONT = "'Afacad', 'Inter', system-ui, sans-serif";
-const BASE_IMG = "/wp-uploads";
-const BASE_VID = "/wp-uploads/2025/07";
+const BASE_IMG = "/assets/shortworks";
+const BASE_VID = "/assets/shortworks";
 
 /* ─── Primitives ─── */
 
@@ -58,7 +58,7 @@ function Label({ children }: { children: React.ReactNode }) {
 function Img({
   src,
   alt,
-  radius = "0px",
+  radius = "12px",
   aspect,
 }: {
   src: string;
@@ -88,6 +88,30 @@ function Img({
   );
 }
 
+function Vid({ src, aspect = "16/9" }: { src: string; aspect?: string }) {
+  return (
+    <Reveal>
+      <div
+        style={{
+          width: "100%",
+          aspectRatio: aspect,
+          overflow: "hidden",
+          lineHeight: 0,
+          borderRadius: "12px",
+        }}
+      >
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          src={src}
+          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+        />
+      </div>
+    </Reveal>
+  );
+}
 
 function HR() {
   return (
@@ -195,7 +219,7 @@ export function ShortWorksContent() {
           }}
         >
           <img
-            src={`${BASE_IMG}/2025/03/1%D1%82%D0%B2%D1%82%D1%84%D0%BE%D0%BD.png`}
+            src={`${BASE_IMG}/hero.png`}
             alt="Short Works hero"
             style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
           />
@@ -227,7 +251,7 @@ export function ShortWorksContent() {
           }}
         >
           <Link
-            href="/"
+            href="/v2"
             style={{
               fontFamily: FONT,
               fontSize: "11px",
@@ -285,7 +309,7 @@ export function ShortWorksContent() {
           >
             {[
               { label: "Формат",  value: "Шорт-работы / Эксперименты" },
-              { label: "Стек",    value: "UI · Motion · Visual" },
+              { label: "Стек",    value: "UI · Motion · 3D · Visual" },
               { label: "Год",     value: "2025" },
             ].map((item, i) => (
               <div key={i} style={{ borderLeft: i > 0 ? "1px solid rgba(10,10,10,0.08)" : "none", paddingLeft: i > 0 ? "clamp(20px,3vw,40px)" : "0" }}>
@@ -341,41 +365,104 @@ export function ShortWorksContent() {
       {/* ══ BLOCK 01 ══ */}
       <div style={{ padding: `20px ${P}` }}>
         <div style={{ marginBottom: GAP }}>
-          <Img src={`${BASE_VID}/screen-1.gif`} alt="Short work animation" />
-        </div>
-
-        <div style={{ marginBottom: GAP }}>
-          <Img src={`${BASE_IMG}/2025/03/2fa.png`} alt="Short work 01" />
+          <Img src="/assets/page13e.png" alt="HARDANI — бренд одежды" radius="12px" />
         </div>
         <div style={{ marginBottom: GAP }}>
-          <Img src={`${BASE_IMG}/2025/03/3fa.png`} alt="Short work 02" />
+          <Img src="/assets/cardi1.png" alt="HARDANI tees lineup" radius="12px" />
+        </div>
+        <div style={{ marginBottom: GAP }}>
+          <Img src="/assets/cardi2.png" alt="HARDANI tees details" radius="12px" />
         </div>
 
-        <Img src={`${BASE_IMG}/2025/03/5fa.png`} alt="Short work 03" />
+        <Img src={`${BASE_IMG}/5fa.png`} alt="Short work 03" radius="12px" />
       </div>
 
       {/* ══ BLOCK 02 ══ */}
       <div style={{ padding: `20px ${P}` }}>
         <div style={{ marginBottom: GAP }}>
-          <Img src={`${BASE_IMG}/2025/03/6fa.png`} alt="Short work 04" />
+          <Vid src={`${BASE_VID}/Запись-экрана-2025-07-30-в-18.53.45.mp4`} />
+        </div>
+      </div>
+
+      {/* ══ HARDANI JEWELRY ══ */}
+      <div style={{ padding: `clamp(60px,8vh,100px) ${P} 0` }}>
+        <Reveal>
+          <h3
+            style={{
+              fontFamily: FONT,
+              fontSize: "clamp(22px,3vw,36px)",
+              fontWeight: 700,
+              color: "#0A0A0A",
+              lineHeight: 1.2,
+              marginBottom: "20px",
+            }}
+          >
+            PENDANT &ldquo;MAKE IT LOUDER&rdquo;
+          </h3>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <p
+            style={{
+              fontFamily: FONT,
+              fontSize: "clamp(15px,1.6vw,18px)",
+              fontWeight: 300,
+              color: "rgba(10,10,10,0.45)",
+              lineHeight: 1.75,
+              maxWidth: "580px",
+            }}
+          >
+            Идея этого украшения мне пришла 4 года назад, мне захотелось увековечить всеми привычную нами гарнитуру от наушников, которая провела много времени у нас на шее.
+          </p>
+        </Reveal>
+      </div>
+      <div style={{ padding: `20px ${P}` }}>
+        <div className="sw-grid" style={{ display: "grid", gridTemplateColumns: "0.55fr 1fr", gap: GAP, marginBottom: GAP }}>
+          <Reveal>
+            <div style={{ borderRadius: "12px", overflow: "hidden" }}>
+              <video autoPlay muted loop playsInline src="/assets/Ready.mp4" style={{ width: "100%", display: "block" }} />
+            </div>
+          </Reveal>
+          <div style={{ display: "flex", flexDirection: "column", gap: GAP }}>
+            <div className="sw-grid-half" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: GAP }}>
+              <Img src="/assets/tookard.png" alt="HARDANI bracelet" radius="12px" />
+              <Img src="/assets/frekard.png" alt="HARDANI jewelry collection" radius="12px" />
+            </div>
+            <Img src="/assets/cheticard.png" alt="HARDANI pendant" radius="12px" />
+          </div>
+        </div>
+      </div>
+
+      <Marquee />
+
+      {/* ══ BLOCK 02 continued ══ */}
+      <div style={{ padding: `20px ${P}` }}>
+        <div style={{ marginBottom: GAP }}>
+          <Vid src={`${BASE_VID}/video-output-78E13B33-0989-4355-925C-7BC5C4524C4D.mp4`} />
         </div>
 
-        <Img src={`${BASE_IMG}/2025/03/7fa.png`} alt="Short work 05" />
+        <div style={{ marginBottom: GAP }}>
+          <Img src={`${BASE_IMG}/6fa.png`} alt="Short work 04" />
+        </div>
+
+        <div style={{ marginBottom: GAP }}>
+          <Vid src={`${BASE_VID}/PIZDEC.mp4`} />
+        </div>
+        <Img src={`${BASE_IMG}/7fa.png`} alt="Short work 05" />
       </div>
 
       {/* ══ BLOCK 03 — Dense gallery ══ */}
       <div style={{ padding: `20px ${P}` }}>
         <div style={{ marginBottom: GAP }}>
-          <Img src={`${BASE_IMG}/2025/03/8fa.png`} alt="Short work 06" />
+          <Img src={`${BASE_IMG}/8fa.png`} alt="Short work 06" />
         </div>
         <div style={{ marginBottom: GAP }}>
-          <Img src={`${BASE_IMG}/2025/03/9fa.png`} alt="Short work 07" />
+          <Img src={`${BASE_IMG}/9fa.png`} alt="Short work 07" />
         </div>
         <div style={{ marginBottom: GAP }}>
-          <Img src={`${BASE_IMG}/2025/03/10fa.png`} alt="Short work 08" />
+          <Img src={`${BASE_IMG}/10fa.png`} alt="Short work 08" />
         </div>
         <div style={{ marginBottom: GAP }}>
-          <Img src={`${BASE_IMG}/2025/03/11fa.png`} alt="Short work 09" />
+          <Img src={`${BASE_IMG}/11fa.png`} alt="Short work 09" />
         </div>
 
       </div>
@@ -385,30 +472,93 @@ export function ShortWorksContent() {
       {/* ══ BLOCK 04 ══ */}
       <div style={{ padding: `20px ${P}` }}>
         <div style={{ marginBottom: GAP }}>
-          <Img src={`${BASE_IMG}/2025/03/13fa.png`} alt="Short work 10" />
+          <Img src={`${BASE_IMG}/13fa.png`} alt="Short work 10" />
         </div>
         <div style={{ marginBottom: GAP }}>
-          <Img src={`${BASE_IMG}/2025/03/14fa.png`} alt="Short work 11" />
+          <Img src={`${BASE_IMG}/14fa.png`} alt="Short work 11" />
         </div>
 
-        <Img src={`${BASE_IMG}/2025/03/16fa.png`} alt="Short work 12" />
+        <Img src={`${BASE_IMG}/16fa.png`} alt="Short work 12" />
       </div>
 
       {/* ══ BLOCK 05 — Final works ══ */}
       <div style={{ padding: `20px ${P}` }}>
         <div style={{ marginBottom: GAP }}>
-          <Img src={`${BASE_IMG}/2025/03/15fa.png`} alt="Short work 14" />
+          <Img src={`${BASE_IMG}/15fa.png`} alt="Short work 14" />
         </div>
 
         <div style={{ marginBottom: GAP }}>
-          <Img src={`${BASE_IMG}/2025/07/32242dv.v.png`} alt="Short work 15" />
-        </div>
-        <div style={{ marginBottom: GAP }}>
-          <Img src={`${BASE_IMG}/2025/07/%D0%BA%D0%B6%D0%BF%D1%82%D0%BF-%D0%B0.png`} alt="Short work 16" />
+          <Img src={`${BASE_IMG}/kzhptp.png`} alt="Short work 16" />
         </div>
 
-        <Img src={`${BASE_IMG}/2025/07/3222332.png`} alt="Short work 17" />
+        <div style={{ marginBottom: GAP }}>
+          <Vid src={`${BASE_VID}/Запись-экрана-2025-07-25-в-14.58.18.mp4`} />
+        </div>
+
+        <Img src={`${BASE_IMG}/3222332.png`} alt="Short work 17" />
       </div>
+
+      {/* ══ 3D & MOTION ══ */}
+      <div style={{ padding: `clamp(60px,8vh,100px) ${P} 0` }}>
+        <Reveal>
+          <h3
+            style={{
+              fontFamily: FONT,
+              fontSize: "clamp(22px,3vw,36px)",
+              fontWeight: 700,
+              color: "#0A0A0A",
+              lineHeight: 1.2,
+              marginBottom: "20px",
+            }}
+          >
+            3D & MOTION
+          </h3>
+        </Reveal>
+      </div>
+
+      <div style={{ padding: `0 ${P}` }}>
+        <div className="sw-grid" style={{ display: "grid", gridTemplateColumns: "16fr 9fr", gap: GAP, marginBottom: GAP, alignItems: "start" }}>
+          <Reveal>
+            <div style={{ borderRadius: "12px", overflow: "hidden" }}>
+              <video autoPlay muted loop playsInline src="/motion/video_1.mp4" style={{ width: "100%", display: "block" }} />
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div style={{ borderRadius: "12px", overflow: "hidden" }}>
+              <video autoPlay muted loop playsInline src="/motion/video_2.mp4" style={{ width: "100%", display: "block" }} />
+            </div>
+          </Reveal>
+        </div>
+
+        <div style={{ marginBottom: GAP }}>
+          <Img src="/motion/image3.png" alt="3D motion — Part of my soul is dead" radius="12px" />
+        </div>
+
+        <div className="sw-grid" style={{ display: "grid", gridTemplateColumns: "0.5625fr 0.921fr", gap: GAP, marginBottom: GAP, alignItems: "start" }}>
+          <Reveal>
+            <div style={{ borderRadius: "12px", overflow: "hidden" }}>
+              <video autoPlay muted loop playsInline src="/motion/video_3.mp4" style={{ width: "100%", display: "block" }} />
+            </div>
+          </Reveal>
+          <Img src="/motion/image5.png" alt="3D motion — nature gems" radius="12px" />
+        </div>
+
+        <div className="sw-grid" style={{ display: "grid", gridTemplateColumns: "1.024fr 0.5937fr", gap: GAP, marginBottom: GAP, alignItems: "start" }}>
+          <Img src="/motion/image6.png" alt="3D motion — daisy badges" radius="12px" />
+          <Img src="/motion/ring1.png" alt="3D motion — ring" radius="12px" />
+        </div>
+
+        <div className="sw-grid" style={{ display: "grid", gridTemplateColumns: "0.5625fr 1fr", gap: GAP, marginBottom: GAP, alignItems: "start" }}>
+          <Reveal>
+            <div style={{ borderRadius: "12px", overflow: "hidden" }}>
+              <video autoPlay muted loop playsInline src="/motion/7Ffean.mp4" style={{ width: "100%", display: "block" }} />
+            </div>
+          </Reveal>
+          <Img src="/motion/ice.jpg" alt="3D motion — ice" radius="12px" />
+        </div>
+      </div>
+
+      <Marquee />
 
       {/* ══ BIG STATEMENT ══ */}
       <div
@@ -439,7 +589,7 @@ export function ShortWorksContent() {
 
       {/* ══ NEXT PROJECT ══ */}
       <div style={{ padding: `clamp(40px,6vh,80px) ${P}` }}>
-        <Link href="/projects/indiamall-final" style={{ textDecoration: "none", display: "block" }}>
+        <Link href="/" style={{ textDecoration: "none", display: "block" }}>
           <motion.div
             whileHover={{ backgroundColor: "rgba(10,10,10,0.03)" }}
             transition={{ duration: 0.25 }}
@@ -463,7 +613,7 @@ export function ShortWorksContent() {
                   marginBottom: "16px",
                 }}
               >
-                Следующий проект
+                Все проекты
               </p>
               <h2
                 style={{
@@ -474,7 +624,7 @@ export function ShortWorksContent() {
                   letterSpacing: "-0.02em",
                 }}
               >
-                Indiamall
+                Back to home
               </h2>
             </div>
             <motion.span
@@ -491,6 +641,8 @@ export function ShortWorksContent() {
       <style>{`
         @media (max-width: 768px) {
           .sw-meta { grid-template-columns: 1fr 1fr !important; row-gap: 28px !important; }
+          .sw-grid { grid-template-columns: 1fr !important; }
+          .sw-grid-half { grid-template-columns: 1fr !important; }
         }
         @media (max-width: 480px) {
           .sw-meta { grid-template-columns: 1fr !important; }
