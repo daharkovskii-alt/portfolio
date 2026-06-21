@@ -107,9 +107,9 @@ function Л2Block({ isMobile }: { isMobile: boolean }) {
   const y = useTransform(scrollYProgress, [0, 1], ["-40%", "40%"]);
   return (
     <div ref={ref} style={{ position: "relative", overflow: "hidden" }}>
-      <img src="/dionis-jewelry/content/л2.png" alt="" style={{ display: "block", width: "100%", height: "auto" }} />
+      <img src="/dionis-jewelry/content/l2.png" alt="" style={{ display: "block", width: "100%", height: "auto" }} />
       <motion.img
-        src="/dionis-jewelry/content/лого.svg"
+        src="/dionis-jewelry/content/logo.svg"
         alt=""
         style={{
           position: "absolute",
@@ -143,18 +143,6 @@ export function DionisContent() {
           alt=""
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 0 }}
         />
-
-        {/* back button */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          style={{ position: "absolute", top: isMobile ? "20px" : "40px", left: isMobile ? "16px" : "40px", zIndex: 3 }}
-        >
-          <Link href="/v2" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "6px", padding: isMobile ? "10px 16px" : "12px 20px", borderRadius: "66px", border: "1px solid rgba(255,255,255,0.3)", backgroundColor: "#fff", color: "#0a0a0a", fontSize: isMobile ? "12px" : "13px", fontWeight: 400, textDecoration: "none", whiteSpace: "nowrap" }}>
-            <span style={{ fontSize: "10px" }}>←</span>назад
-          </Link>
-        </motion.div>
 
         {/* inner layout */}
         <motion.div
@@ -381,7 +369,7 @@ export function DionisContent() {
       {/* ── content images ── */}
       <div style={{ padding: isMobile ? 0 : "0 40px", backgroundColor: "#000000" }}>
         <video
-          src="/dionis-jewelry/content/главн.mp4"
+          src="/dionis-jewelry/content/main.mp4"
           autoPlay
           muted
           loop
@@ -390,12 +378,12 @@ export function DionisContent() {
         />
       </div>
       <div style={{ padding: isMobile ? 0 : "0 40px", backgroundColor: "#000000" }}>
-        <img src="/dionis-jewelry/content/л1.png?v=2" alt="" style={{ display: "block", width: "100%", height: "auto" }} />
+        <img src="/dionis-jewelry/content/l1.png" alt="" style={{ display: "block", width: "100%", height: "auto" }} />
       </div>
       <div style={{ padding: isMobile ? 0 : "0 40px", backgroundColor: "#000000" }}>
         <Л2Block isMobile={isMobile} />
       </div>
-      {["л3.png","л4.png"].map((file) => (
+      {["l3.png","l4.png"].map((file) => (
         <div key={file} style={{ padding: isMobile ? 0 : "0 40px", backgroundColor: "#000000" }}>
           <img src={`/dionis-jewelry/content/${file}`} alt="" style={{ display: "block", width: "100%", height: "auto" }} />
         </div>
@@ -404,7 +392,7 @@ export function DionisContent() {
       {/* ── второе.mp4 ── */}
       <div style={{ padding: isMobile ? 0 : "0 40px", backgroundColor: "#000000" }}>
         <video
-          src="/dionis-jewelry/content/ второе.mp4"
+          src="/dionis-jewelry/content/video2.mp4"
           autoPlay
           muted
           loop
@@ -413,10 +401,10 @@ export function DionisContent() {
         />
       </div>
 
-      {["л5.png","л6.png","л7.png","л8.png","л9.png","л10.png","л11.png","л12.png","л13.png","л14.png","л15.png"].map((file) => (
+      {["l5.png","l6.png","l7.png","l8.png","l9.png","l10.png","l11.png","l12.png","l13.png","l14.png","l15.png"].map((file) => (
         <div key={file} style={{ padding: isMobile ? 0 : "0 40px", backgroundColor: "#000000" }}>
           <img
-            src={`/dionis-jewelry/content/${file}${file === "л11.png" || file === "л5.png" || file === "л6.png" ? "?v=2" : ""}`}
+            src={`/dionis-jewelry/content/${file}`}
             alt=""
             style={{ display: "block", width: "100%", height: "auto" }}
           />
@@ -545,7 +533,7 @@ export function DionisContent() {
       </div>
 
       {/* ── next project ── */}
-      <Link href="/projects/project-01" style={{ display: "block", textDecoration: "none" }}>
+      <Link href="/projects/rif-v2" style={{ display: "block", textDecoration: "none" }}>
         <motion.div
           whileHover={{ backgroundColor: C.dark }}
           transition={{ duration: 0.3 }}
@@ -558,7 +546,7 @@ export function DionisContent() {
               </p>
               <AccentReveal>
                 <h2 style={{ fontFamily: BOUNDED, fontSize: "clamp(40px, 6vw, 88px)", fontWeight: 900, color: C.white, textTransform: "uppercase", lineHeight: 0.9 }}>
-                  INDIAMALL
+                  РИФ
                 </h2>
               </AccentReveal>
             </div>
