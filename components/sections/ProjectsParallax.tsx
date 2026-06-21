@@ -33,7 +33,7 @@ const projects: Project[] = [
     tags: ["B2B e-commerce"],
   },
   {
-    slug: "project-02",
+    slug: "dionis-jewelry",
     number: "02",
     title: "Dionis",
     role: "Арт директор",

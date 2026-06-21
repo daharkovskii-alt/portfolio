@@ -11,7 +11,7 @@ interface Props {
 
 const titles: Record<string, string> = {
   "indiamall-final": "Indiamall — D.KHARKOVSKIY",
-  "project-02": "DIONIS Jewelry — D.KHARKOVSKIY",
+  "dionis-jewelry": "DIONIS Jewelry — D.KHARKOVSKIY",
   "rif-v2":     "РИФ 2025 — D.KHARKOVSKIY",
   "concept-univermag": "Универмаг — D.KHARKOVSKIY",
   "project-05": "Short Works — D.KHARKOVSKIY",
@@ -20,7 +20,7 @@ const titles: Record<string, string> = {
 export async function generateStaticParams() {
   return [
     { slug: "indiamall-final" },
-    { slug: "project-02" },
+    { slug: "dionis-jewelry" },
     { slug: "rif-v2" },
     { slug: "concept-univermag" },
     { slug: "project-05" },
@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ProjectPage({ params }: Props) {
   const { slug } = await params;
   if (slug === "indiamall-final") return <IndiamallFinalContent />;
-  if (slug === "project-02") return <DionisContent />;
+  if (slug === "dionis-jewelry") return <DionisContent />;
   if (slug === "rif-v2")     return <RifContentV2 />;
   if (slug === "concept-univermag") return <UniversmagContent />;
   if (slug === "project-05") return <ShortWorksContent />;
