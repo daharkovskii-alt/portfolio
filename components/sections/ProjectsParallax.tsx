@@ -35,7 +35,7 @@ const projects: Project[] = [
   },
   {
     slug: "dionis-jewelry",
-    href: "/dionis-jewelry",
+    href: "/projects/dionis-jewelry",
     number: "02",
     title: "Dionis",
     role: "Арт директор",
