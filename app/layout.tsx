@@ -7,7 +7,7 @@ import { GlobalNav } from "@/components/layout/GlobalNav";
 import { YandexMetrika } from "@/components/analytics/YandexMetrika";
 
 export const metadata: Metadata = {
-  title: "Daniil Kharkovskiy — Creative Developer & Art Director",
+  title: "Daniil Kharkovskiy — Creative leader Communication designer",
   description:
     "Creative developer, art director, and designer building premium digital experiences.",
 };
