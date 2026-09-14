@@ -29,6 +29,7 @@ export function HeroV2() {
   const crossContainerRef = useRef<HTMLDivElement>(null);
   const crossGroupRef = useRef<HTMLDivElement>(null);
   const h1Ref = useRef<HTMLHeadingElement>(null);
+  const nameRef = useRef<HTMLParagraphElement>(null);
   const scrollHintRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -90,6 +91,12 @@ export function HeroV2() {
         { opacity: 1 },
         { opacity: 0, ease: "none", duration: 0.15 },
         0
+      );
+
+      tl.to(
+        nameRef.current,
+        { opacity: 0, y: -18, ease: "none", duration: 0.18 },
+        0.78
       );
     });
 
@@ -156,6 +163,7 @@ export function HeroV2() {
             </div>
 
             <motion.p
+              ref={nameRef}
               {...reveal(0.9)}
               style={{
                 fontFamily: "'Afacad', system-ui, sans-serif",
