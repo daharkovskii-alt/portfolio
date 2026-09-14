@@ -32,7 +32,7 @@ const projects: Project[] = [
     description: "Айдентика Российского Интернет Форума",
     cover: "/rif/cover.webp",
     coverFit: "contain",
-    tags: ["Event", "Digital"],
+    tags: ["Event visual identity", "Digital/Offline"],
   },
   {
     slug: "indiamall-final",
