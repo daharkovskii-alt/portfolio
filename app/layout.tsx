@@ -6,10 +6,25 @@ import { CurtainFooter } from "@/components/sections/CurtainFooter";
 import { GlobalNav } from "@/components/layout/GlobalNav";
 import { YandexMetrika } from "@/components/analytics/YandexMetrika";
 
+const siteTitle = "Daniil Kharkovskiy — Creative leader Communication designer";
+const siteDescription =
+  "Creative leader and communication designer building premium digital experiences.";
+
 export const metadata: Metadata = {
-  title: "Daniil Kharkovskiy — Creative leader Communication designer",
-  description:
-    "Creative leader and communication designer building premium digital experiences.",
+  title: siteTitle,
+  description: siteDescription,
+  openGraph: {
+    title: siteTitle,
+    description: siteDescription,
+    url: "https://hardani.ru/",
+    siteName: "hardani.ru",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: siteTitle,
+    description: siteDescription,
+  },
 };
 
 export default function RootLayout({
