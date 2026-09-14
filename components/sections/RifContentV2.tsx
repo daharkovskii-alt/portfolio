@@ -345,7 +345,7 @@ function ApproachBlock() {
       <div ref={ref} style={{ background: LIME, borderRadius: "24px", padding: "clamp(64px,8vw,100px) clamp(48px,6vw,80px)", position: "relative", overflow: "hidden" }}>
         <p style={{ fontSize: "11px", color: "rgba(21,6,48,0.45)", textTransform: "uppercase", fontWeight: 700, letterSpacing: "0.12em", margin: "0 0 32px" }}>Подход</p>
         <p style={{ fontSize: "clamp(32px,4.5vw,64px)", fontWeight: 900, color: PURPLE_DARK, lineHeight: 1.08, margin: 0, maxWidth: "900px" }}>
-          Взял культурный код retro gaming и Windows XP — и превратил ностальгию в визуальную систему.
+          Взял культурный код retro gaming и Windows XP — и превратил ностальгию в визуальную систему
         </p>
         <p style={{ fontSize: "clamp(16px,1.6vw,20px)", fontWeight: 500, color: "rgba(21,6,48,0.55)", lineHeight: 1.65, margin: "32px 0 0", maxWidth: "640px" }}>
           Один стиль — для сайта, навигации и офлайн-носителей. Команда принимала решения быстро, без микроменеджмента.
@@ -659,7 +659,7 @@ export function RifContentV2() {
               transition={{ duration: 0.8, delay: 0.6, ease: EASE }}
               style={{ fontSize: "clamp(16px, 2vw, 24px)", color: "rgba(255,255,255,0.75)", lineHeight: 1.5, maxWidth: "560px", margin: 0, fontWeight: 400 }}
             >
-              Российский Интернет Форум 2025 — крупнейшее ИТ-событие России.
+              Российский Интернет Форум 2025 — крупнейшее ИТ-событие России
             </motion.p>
           </motion.div>
         </div>
@@ -1107,7 +1107,7 @@ export function RifContentV2() {
               <div style={{ position: "relative" }}>
                 <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.35)", textTransform: "uppercase", fontWeight: 700, letterSpacing: "0.12em", margin: "0 0 32px" }}>Итог</p>
                 <p style={{ fontSize: "clamp(32px,4.5vw,64px)", fontWeight: 900, color: "#fff", lineHeight: 1.08, maxWidth: "820px", margin: "0 0 64px" }}>
-                  Концепция объединила сайт и офлайн-мероприятие в единый опыт.
+                  Концепция объединила сайт и офлайн-мероприятие в единый опыт
                 </p>
                 <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr 1fr" : "repeat(4, 1fr)", gap: isMobile ? "24px 0" : 0, borderTop: "1px solid rgba(255,255,255,0.1)" }}>
                   {[

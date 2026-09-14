@@ -228,13 +228,13 @@ export function IndiamallFinalContent() {
           <div style={{ backgroundColor: DARK, borderRadius: "28px", padding: CP, overflow: "hidden" }}>
             <AccentReveal>
               <p style={{ fontSize: "clamp(28px, 4.5vw, 64px)", fontWeight: 500, lineHeight: 1.1, marginBottom: "36px", letterSpacing: "-0.02em", color: "#fff", maxWidth: "800px", fontFamily: DISPLAY }}>
-                {nb("Продукт, маркетинг и офлайн — три разных языка в одной компании.")}
+                {nb("Продукт, маркетинг и офлайн — три разных языка в одной компании")}
               </p>
             </AccentReveal>
             <Reveal delay={0.2}>
               <p style={{ fontSize: "18px", fontWeight: 300, color: "rgba(255,255,255,0.5)", lineHeight: 1.75, maxWidth: "560px" }}>
                 {nb("Собрать всё в одну систему, ")}
-                <em style={{ fontStyle: "italic", color: "rgba(255,255,255,0.85)" }}>{nb("которая работает без ручного контроля на каждом шаге.")}</em>
+                <em style={{ fontStyle: "italic", color: "rgba(255,255,255,0.85)" }}>{nb("которая работает без ручного контроля на каждом шаге")}</em>
               </p>
             </Reveal>
           </div>
@@ -357,7 +357,7 @@ export function IndiamallFinalContent() {
 
             <AccentReveal style={{ marginBottom: "clamp(20px,3vh,32px)" }}>
               <p style={{ fontSize: "clamp(28px,3.2vw,48px)", fontWeight: 500, lineHeight: 1.1, letterSpacing: "-0.01em", color: "#fff", fontFamily: DISPLAY }}>
-                {"Единственный дизайнер на проекте."}<br />{"Выстраивал систему с нуля —"}<br />{"от стратегии до производства."}
+                {"Единственный дизайнер на проекте"}<br />{"Выстраивал систему с нуля —"}<br />{"от стратегии до производства"}
               </p>
             </AccentReveal>
             <Reveal delay={0.15} style={{ marginBottom: "clamp(32px,4vh,56px)" }}>
@@ -534,7 +534,7 @@ export function IndiamallFinalContent() {
         <div style={{ maxWidth: "900px", margin: "0 auto", textAlign: "center" }} className="fim-ux">
           <AccentReveal delay={0.05} style={{ marginBottom: "36px" }}>
             <p style={{ fontSize: "clamp(28px, 3.5vw, 52px)", fontWeight: 500, lineHeight: 1.15, fontFamily: DISPLAY }}>
-              Консистентность,<br />читаемость, простота.
+              Консистентность,<br />читаемость, простота
             </p>
           </AccentReveal>
           <Reveal delay={0.15} style={{ marginBottom: "36px" }}>
@@ -629,7 +629,7 @@ export function IndiamallFinalContent() {
             <p style={{ fontSize: "11px", fontWeight: 600, color: "rgba(255,255,255,0.3)", textTransform: "uppercase", marginBottom: "48px" }}>Итог</p>
             <AccentReveal delay={0.1} style={{ marginBottom: "56px" }}>
               <p style={{ fontSize: "clamp(36px, 5vw, 76px)", fontWeight: 500, lineHeight: 1.08, maxWidth: "900px", color: "#fff", letterSpacing: "-0.02em", fontFamily: DISPLAY }}>
-                {nb("Перестроил бренд из хаотичного — в системный.")}
+                {nb("Перестроил бренд из хаотичного — в системный")}
               </p>
             </AccentReveal>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "60px" }} className="fim-outro">
