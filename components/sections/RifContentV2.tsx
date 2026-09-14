@@ -677,7 +677,7 @@ export function RifContentV2() {
             <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)", gap: "12px" }}>
               {[
                 { label: "Роль",    value: "Арт-дирекшн, дизайнер",                    bg: dark ? "#1A1330" : "#E8E8EA", labelColor: dark ? "rgba(255,255,255,0.38)" : "rgba(0,0,0,0.4)", textColor: dark ? "#fff" : PURPLE_DARK },
-                { label: "Задача",  value: "Креативная концепция + сайт",                bg: PURPLE,                        labelColor: "rgba(255,255,255,0.55)",                            textColor: "#fff" },
+                { label: "Задача",  value: "Креативная концепция + айдентика + digital + offline", bg: PURPLE,                        labelColor: "rgba(255,255,255,0.55)",                            textColor: "#fff" },
                 { label: "Команда", value: "Студия разработки и стейкхолдеры форума",   bg: LIME,                          labelColor: "rgba(0,0,0,0.45)",                                  textColor: "#0D0A1A" },
               ].map((item) => (
                 <div
